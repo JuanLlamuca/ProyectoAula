@@ -235,6 +235,11 @@ public class Administrador extends javax.swing.JFrame {
 
         menu_reporteCarrareras.setText("Reporte Carreras");
         menu_reporteCarrareras.setPreferredSize(new java.awt.Dimension(200, 30));
+        menu_reporteCarrareras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_reporteCarrarerasActionPerformed(evt);
+            }
+        });
         jMenu5.add(menu_reporteCarrareras);
 
         jMenuBar1.add(jMenu5);
@@ -319,6 +324,11 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         ReporteEmpleadores();
     }//GEN-LAST:event_menu_reporteEmpleadorActionPerformed
+
+    private void menu_reporteCarrarerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_reporteCarrarerasActionPerformed
+        // TODO add your handling code here:
+        ReporteCarreras();
+    }//GEN-LAST:event_menu_reporteCarrarerasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,7 +499,6 @@ public class Administrador extends javax.swing.JFrame {
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/" + "ReporteEmpleadores" + ".pdf"));
 
             com.itextpdf.text.Image header = com.itextpdf.text.Image.getInstance("C:\\Bolsa de empleo\\Sistema_bolsa_de_empleo\\src\\imagenes\\Logo_secundario_positivo.jpg");
-      
 
             Paragraph parrafo = new Paragraph();
             parrafo.setAlignment(Paragraph.ALIGN_CENTER);
@@ -552,6 +561,59 @@ public class Administrador extends javax.swing.JFrame {
             //holamundo
         }
 
+    }
+
+    public void ReporteCarreras() {
+        Document documento = new Document(PageSize.A4.rotate());
+        try {
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/" + "ReporteCarreras" + ".pdf"));
+
+            com.itextpdf.text.Image header = com.itextpdf.text.Image.getInstance("C:\\Bolsa de empleo\\Sistema_bolsa_de_empleo\\src\\imagenes\\Logo_secundario_positivo.jpg");
+            header.scaleToFit(300, 250);
+            header.setAlignment(Chunk.ALIGN_CENTER);
+
+            Paragraph parrafo = new Paragraph();
+            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
+            parrafo.add("Reporte de las carreras \n\n");
+            parrafo.setFont(FontFactory.getFont("Calibri Light", 8, Font.ITALIC, BaseColor.DARK_GRAY));
+
+            documento.open();
+            documento.add(header);
+            documento.add(parrafo);
+
+            PdfPTable tabla_carreras = new PdfPTable(3);
+            tabla_carreras.setWidthPercentage(100);
+            tabla_carreras.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER); // establecer la alineación horizontal
+            tabla_carreras.addCell("id carrera");
+            tabla_carreras.addCell("Nombre carrera");
+            tabla_carreras.addCell("Descripción Carrera");
+            try {
+                cn = mysql.conectar();
+                PreparedStatement pst = cn.prepareStatement("select * from carrera ");
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    do {
+                       tabla_carreras.addCell(rs.getString(1));
+                        tabla_carreras.addCell(rs.getString(2));
+                       tabla_carreras.addCell(rs.getString(3));
+                       
+                    } while (rs.next());
+
+                    documento.add(tabla_carreras);
+                }
+          
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al cargar postulantes" + e);
+            }
+
+            documento.close();
+            JOptionPane.showMessageDialog(null, "Reporte generado con exito");
+        } catch (DocumentException | IOException e) {
+            System.out.println("Error en pdf o ruta de imagen " + e);
+            JOptionPane.showMessageDialog(null, "Error al generar el pdf");
+        }
     }
 
 }
