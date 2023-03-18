@@ -25,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.sql.*;
+import javax.swing.JMenuBar;
 
 import javax.swing.JOptionPane;
 
@@ -41,8 +42,11 @@ public class Administrador extends javax.swing.JFrame {
 
     public Administrador() {
         initComponents();
-        this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
+    
+     
+     
+
 
     }
 
@@ -55,9 +59,7 @@ public class Administrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menu_añadirEstudiante = new javax.swing.JMenuItem();
@@ -79,17 +81,15 @@ public class Administrador extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         menu_estadistica = new javax.swing.JMenuItem();
 
-        jMenu7.setText("File");
-        jMenuBar2.add(jMenu7);
-
-        jMenu8.setText("Edit");
-        jMenuBar2.add(jMenu8);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenuBar1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1910, 920));
+
+        jMenuBar1.setBackground(new java.awt.Color(51, 204, 255));
+        jMenuBar1.setBorderPainted(false);
 
         jMenu1.setBackground(new java.awt.Color(27, 107, 184));
         jMenu1.setForeground(new java.awt.Color(0, 0, 0));
@@ -235,11 +235,6 @@ public class Administrador extends javax.swing.JFrame {
 
         menu_reporteCarrareras.setText("Reporte Carreras");
         menu_reporteCarrareras.setPreferredSize(new java.awt.Dimension(200, 30));
-        menu_reporteCarrareras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_reporteCarrarerasActionPerformed(evt);
-            }
-        });
         jMenu5.add(menu_reporteCarrareras);
 
         jMenuBar1.add(jMenu5);
@@ -325,11 +320,6 @@ public class Administrador extends javax.swing.JFrame {
         ReporteEmpleadores();
     }//GEN-LAST:event_menu_reporteEmpleadorActionPerformed
 
-    private void menu_reporteCarrarerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_reporteCarrarerasActionPerformed
-        // TODO add your handling code here:
-        ReporteCarreras();
-    }//GEN-LAST:event_menu_reporteCarrarerasActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -372,10 +362,8 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menu_añadirCarrera;
     private javax.swing.JMenuItem menu_añadirEstudiante;
     private javax.swing.JMenuItem menu_eliminarCarrera;
