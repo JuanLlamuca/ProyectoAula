@@ -7,8 +7,9 @@ import modelo.Empleador_j;
 
 public class P_loginEmpleador extends javax.swing.JFrame {
          
-    int xMouse, yMouse;
+    public static String cedula ="0"; //La variable tipo static que se envía a cualquier Jframe la información
     
+    int xMouse, yMouse;
     
     public P_loginEmpleador() {
         initComponents();
@@ -225,6 +226,7 @@ public class P_loginEmpleador extends javax.swing.JFrame {
 
     private void obten_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obten_userActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_obten_userActionPerformed
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
@@ -293,28 +295,26 @@ public class P_loginEmpleador extends javax.swing.JFrame {
     Ctrl_Empleador_j controlEmpleador = new Ctrl_Empleador_j();
     
     String pass = String.valueOf(obten_clave.getPassword());
-    
-    
+   
     if(!obten_user.getText().isEmpty() && !obten_clave.getText().isEmpty()){
         
         empleador.setEmp_ced(Integer.parseInt(obten_user.getText().trim())); //el .trim elimina espacios al final o inicio de la cadena de texto
         empleador.setEmp_clave(pass.trim());  
         
         if (controlEmpleador.ValidaEmpleador(empleador)){
+            
              JOptionPane.showMessageDialog(null, "Sesión iniciada...");
      
              this.setVisible(false);
              //Paso al menú principal
              P_menu m = new P_menu();
-             m.setVisible(true);
-             //Envío nombre
-             
-             
-     
-             //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar 
-                P_modificaEmpleador mod = new P_modificaEmpleador();
+             m.setVisible(true);             
+        
+            //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar  
+                
                 int info = empleador.getEmp_ced();
-                P_modificaEmpleador.txt_recibeced.setText(String.valueOf(info));  //Para solucionar, vamos al text fiel en interfaz que va a recibir esto, le damos click derecho/customized code/acces:Public/static
+                cedula = String.valueOf(info);
+               
                 
             }
         else{

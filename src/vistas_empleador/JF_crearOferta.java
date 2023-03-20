@@ -18,6 +18,11 @@ public class JF_crearOferta extends javax.swing.JFrame {
     public JF_crearOferta() {
         initComponents();
         setLocationRelativeTo(null);
+        //fecha local del sistema
+        java.util.Date fecha = new java.util.Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        txt_finicio.setText(formato.format(fecha));
+
     }
 
     /**
@@ -208,15 +213,13 @@ public class JF_crearOferta extends javax.swing.JFrame {
 
     private void C_calendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_C_calendarioPropertyChange
         if (evt.getOldValue() != null) {
-            SimpleDateFormat ff = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat ff = new SimpleDateFormat("dd/MM/yyyy");
             txt_fechaFin.setText(ff.format(C_calendario.getCalendar().getTime()));
         }
         
     }//GEN-LAST:event_C_calendarioPropertyChange
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -281,4 +284,5 @@ public class JF_crearOferta extends javax.swing.JFrame {
     private javax.swing.JTextField txt_salario;
     private javax.swing.JTextField txt_ubi;
     // End of variables declaration//GEN-END:variables
+
 }

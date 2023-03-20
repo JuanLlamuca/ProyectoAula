@@ -11,32 +11,7 @@ public class Ctrl_Empleador_j {
    
     Conexion mysql = new Conexion();
     Connection cn = mysql.conectar();
-    
-    
-    //Mostrar empleador
-    public boolean MostrarEmpleador(Empleador_j objeto) {
-        Boolean respuesta = false;
         
-        try{
-        
-            CallableStatement mostrar = cn.prepareCall("{CALL sp_mostrarEmpleador(?)}");
-            
-            mostrar.setInt(1,objeto.getEmp_ced());
-            
-            if(mostrar.executeUpdate()!= 0) {
-                respuesta = true;
-            }
-            cn.close();
-            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
-        }
-        catch (SQLException e) {
-            System.out.println("Error en consulta: " + e);
-        }
-        return respuesta;
-    }
-    
-    
-    
     //Para validar empleador
     public boolean ValidaEmpleador(Empleador_j objeto) {
         Boolean respuesta = false;
@@ -61,8 +36,7 @@ public class Ctrl_Empleador_j {
         return respuesta;
     }
     
-    
-    
+     
     //Para insertar al empleador
     public boolean InsertarEmpleador(Empleador_j objeto) {
         Boolean respuesta = false;
