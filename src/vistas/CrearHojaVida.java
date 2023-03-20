@@ -402,8 +402,8 @@ public class CrearHojaVida extends javax.swing.JFrame {
         HojaVida hoja = new HojaVida();
         Crtl_Hoja_vida controlHoja = new Crtl_Hoja_vida();
 
-        if (!txt_cedula.getText().isEmpty() && !txt_nombre.getText().isEmpty() && combo_genero.getSelectedItem() == null
-                && combo_estadoCivil.getSelectedItem() == null && !txt_canton.getText().isEmpty() && !txt_ciudad.getText().isEmpty()
+        if (!txt_cedula.getText().isEmpty() && !txt_nombre.getText().isEmpty() 
+                && !txt_canton.getText().isEmpty() && !txt_ciudad.getText().isEmpty()
                 && !txt_direccion.getText().isEmpty() && !txt_correo.getText().isEmpty() && !txt_descripcionProfesional.getText().isEmpty()
                 && !txt_formacionAcademica.getText().isEmpty() && !txt_telefonoPersonal.getText().isEmpty() && !txt_telefonoReferencia1.getText().isEmpty()
                 && !txt_telefonoReferencia2.getText().isEmpty() && !txt_nombreReferencia1.getText().isEmpty() && !txt_nombreReferencia2.getText().isEmpty()
@@ -422,26 +422,17 @@ public class CrearHojaVida extends javax.swing.JFrame {
             hoja.setFormacion(txt_formacionAcademica.getText());
             hoja.setTelreferencia1(Integer.parseInt(txt_telefonoReferencia1.getText()));
             hoja.setTelreferencia2(Integer.parseInt(txt_telefonoReferencia2.getText()));
-            hoja.setNombreReferencia1(txt_nombreReferencia1.getText()); 
-            hoja.setNombreReferencia2(txt_nombreReferencia2.getText()); 
-            hoja.setHabilidades(txt_habilidades.getText()); 
+            hoja.setNombreReferencia1(txt_nombreReferencia1.getText());
+            hoja.setNombreReferencia2(txt_nombreReferencia2.getText());
+            hoja.setHabilidades(txt_habilidades.getText());
             hoja.setAdiccional(txt_adicional.getText());
-            
-            
-            
-            
-            
+
             if (controlHoja.CrearHojaVida(hoja)) {
                 JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
         }
-
-        //limpiar campo
-        txt_nombre.setText("");
-        // txt_descripcion.setText("");
-
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**

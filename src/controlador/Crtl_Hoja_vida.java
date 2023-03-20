@@ -46,6 +46,7 @@ public class Crtl_Hoja_vida {
             insert.setString(16, objeto.getHabilidades());
             insert.setString(17, objeto.getAdiccional());
             insert.setBlob(18, objeto.getImagen());
+            
             insert.execute();
             cn.close();
             JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
