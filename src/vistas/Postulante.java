@@ -139,7 +139,7 @@ public class Postulante extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        HojaVida hoja=new HojaVida();
+        CrearHojaVida hoja=new CrearHojaVida();
         hoja.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
