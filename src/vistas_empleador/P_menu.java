@@ -453,6 +453,8 @@ public class P_menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         lbl_textmostrarofer.setForeground(Color.BLACK);
         P_mostrarOfer.setBackground(new Color(202, 159, 78));
+        JF_mostrarOfertas mostrar = new JF_mostrarOfertas();
+        mostrar.setVisible(true);
     }//GEN-LAST:event_lbl_mostrarOfertasMouseClicked
 
     private void lbl_mostrarOfertasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_mostrarOfertasMouseEntered

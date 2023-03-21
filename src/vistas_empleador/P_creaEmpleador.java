@@ -464,8 +464,7 @@ public class P_creaEmpleador extends javax.swing.JFrame {
                 if (controlEmpleador.InsertarEmpleador(empleador)) {
                     JOptionPane.showMessageDialog(null, "Registro exitoso");
                     
-                    //Limpiar los campos
-                    
+                    //Limpiar los campos 
                     txt_cedula.setText("");
                     txt_nombre.setText("");
                     txt_apellido.setText("");

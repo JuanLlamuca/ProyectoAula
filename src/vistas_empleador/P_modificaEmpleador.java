@@ -404,7 +404,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
     private void Visualizar() {
     
     // Apartado para visualizar
-    int ced = Integer.parseInt(txt_recibeced.getText());
+    int ced = Integer.parseInt(txt_recibeced.getText());//envio automatico de la cedula
 
     try{
 
@@ -427,6 +427,8 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "No se encontraron datos para la cédula ingresada.");
         }
+        cn.close();
+        
     }catch (SQLException e) {
         // Si se produce un error en la consulta, mostrar el mensaje de error correspondiente
         JOptionPane.showMessageDialog(this, "Error al obtener los datos: " + e.getMessage());
