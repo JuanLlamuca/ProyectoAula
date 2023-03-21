@@ -3,50 +3,28 @@ package modelo;
 import java.sql.Blob;
 
 public class HojaVida {
-    private int hoj_id;
-    private int cedula;
-    private String nombre;
-    private String genero;
-    private String estadoCivil;
-    private String canton;
-    private String ciudad;
-    private String direccion;
-    private int telefonoPersonal;
-    private String correo;
-    private String descripcion;
-    private String formacion;
-    private int telreferencia1;
-    private int telreferencia2;
-    private String nombreReferencia1;
-    private String nombreReferencia2;
-    private String habilidades;
-    private String adiccional;
-    private Blob imagen;
+    private int hoj_id; //1
+    private int cedula; //2
+    private String nombre; //3
+    private String genero;  //4
+    private String estadoCivil;  //5
+    private String canton;  //6
+    private String ciudad;  //7
+    private String direccion;  //8
+    private int telefonoPersonal; //9
+    private String correo;  //10
+    private String descripcion;  //11 
+    private String formacion;  //12
+    private String experiencia; //13
+    private int telreferencia1; //14
+    private int telreferencia2; //15
+    private String nombreReferencia1;  //16
+    private String nombreReferencia2;  //17
+    private String habilidades;  //18
+    private String adiccional;  //19
+    private byte [] imagen; //20
 
-    public HojaVida() {
-    }
-
-    public HojaVida(int hoj_id,int cedula, String nombre, String genero, String estadoCivil, String canton, String ciudad, String direccion, int telefonoPersonal, String correo, String descripcion, String formacion, int telreferencia1, int telreferencia2, String nombreReferencia1, String nombreReferencia2, String habilidades, String adiccional, Blob imagen) {
-        this.hoj_id = hoj_id;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.genero = genero;
-        this.estadoCivil = estadoCivil;
-        this.canton = canton;
-        this.ciudad = ciudad;
-        this.direccion = direccion;
-        this.telefonoPersonal = telefonoPersonal;
-        this.correo = correo;
-        this.descripcion = descripcion;
-        this.formacion = formacion;
-        this.telreferencia1 = telreferencia1;
-        this.telreferencia2 = telreferencia2;
-        this.nombreReferencia1 = nombreReferencia1;
-        this.nombreReferencia2 = nombreReferencia2;
-        this.habilidades = habilidades;
-        this.adiccional = adiccional;
-        this.imagen=imagen;
-    }
+   
 
     public int getHoj_id() {
         return hoj_id;
@@ -192,16 +170,23 @@ public class HojaVida {
         this.cedula = cedula;
     }
 
-    public Blob getImagen() {
+
+    public String getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(String experiencia) {
+        this.experiencia = experiencia;
+    }
+
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(Blob imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
-    
-    
-    
+
     
     
     
