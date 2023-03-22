@@ -169,6 +169,11 @@ public class P_bienvenida extends javax.swing.JFrame {
         MI_inicio_p.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         MI_inicio_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/login-removebg-preview.png"))); // NOI18N
         MI_inicio_p.setText("Iniciar Sesion");
+        MI_inicio_p.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_inicio_pActionPerformed(evt);
+            }
+        });
         MB_postulante.add(MI_inicio_p);
 
         MenuBar.add(MB_postulante);
@@ -320,6 +325,12 @@ public class P_bienvenida extends javax.swing.JFrame {
         P_loginEmpleador e = new P_loginEmpleador();
         e.setVisible(true);
     }//GEN-LAST:event_MI_inicio_eActionPerformed
+
+    private void MI_inicio_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_inicio_pActionPerformed
+        // TODO add your handling code here:
+        JF_loginPostulante post = new JF_loginPostulante();
+        post.setVisible(true);
+    }//GEN-LAST:event_MI_inicio_pActionPerformed
 
     /**
      * @param args the command line arguments

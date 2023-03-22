@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.sql.Connection;
@@ -65,5 +64,26 @@ public class Ctrl_Postulante {
         return respuesta;
     }
 
-    
+        public boolean ValidaPostulante(Postulante objeto){
+            Boolean respuesta = false;
+            
+            try{
+            
+            CallableStatement valid = cn.prepareCall("{CALL sp_validaPostulante(?, ?)}");
+            
+            valid.setInt(1, objeto.getCedula());
+            valid.setString(2, objeto.getClave());
+            
+            if (valid.executeUpdate() != 0){
+                respuesta = true;
+            }
+            cn.close();
+            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
+            
+        }
+        catch (SQLException e) {
+            System.out.println("Error al consultar a la DB: " + e);
+        }
+        return respuesta;       
+    }
 }

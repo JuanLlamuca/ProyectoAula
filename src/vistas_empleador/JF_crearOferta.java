@@ -431,6 +431,8 @@ public class JF_crearOferta extends javax.swing.JFrame {
             if (controlofertas.insertOferta(oferta)){
                JOptionPane.showMessageDialog(null, "Oferta creada de manera exitosa");
                
+               System.out.println(fechaOut);
+               
                //Limpio los campos
                txt_descripcion.setText("");
                txt_ubi.setText("");

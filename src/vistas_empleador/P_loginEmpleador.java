@@ -94,7 +94,7 @@ public class P_loginEmpleador extends javax.swing.JFrame {
                 btn_entrarActionPerformed(evt);
             }
         });
-        Panel_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 390, 40));
+        Panel_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 390, 40));
 
         p_barraOpciones.setBackground(new java.awt.Color(225, 227, 229));
         p_barraOpciones.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -304,7 +304,7 @@ public class P_loginEmpleador extends javax.swing.JFrame {
         if (controlEmpleador.ValidaEmpleador(empleador)){
             
              JOptionPane.showMessageDialog(null, "Sesión iniciada...");
-     
+               
              this.setVisible(false);
              //Paso al menú principal
              P_menu m = new P_menu();
