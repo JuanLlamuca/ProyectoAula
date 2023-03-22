@@ -14,11 +14,12 @@ public class Postulante {
     private String eduacion;
     private String nacimiento;
     private int carrera;
+    private String clave;
 
     public Postulante() {
     }
     
-    public Postulante(int cedula, String nombres, String apellidos, int telefonoP, int telefonoD, String correo, String direccion, String eduacion, String nacimiento, int carrera) {
+    public Postulante(int cedula, String nombres, String apellidos, int telefonoP, int telefonoD, String correo, String direccion, String eduacion, String nacimiento, int carrera, String clave) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -29,6 +30,15 @@ public class Postulante {
         this.eduacion = eduacion;
         this.nacimiento = nacimiento;
         this.carrera = carrera;
+        this.clave = clave;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     public int getCedula() {
