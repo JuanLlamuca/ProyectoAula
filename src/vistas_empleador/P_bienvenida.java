@@ -1,6 +1,7 @@
 package vistas_empleador;
 
 import java.awt.Color;
+import vistas.Login_Administrador;
 
 public class P_bienvenida extends javax.swing.JFrame {
 
@@ -8,7 +9,7 @@ public class P_bienvenida extends javax.swing.JFrame {
     
     public P_bienvenida() {
         initComponents();
-        //this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
     
 
@@ -55,25 +56,25 @@ public class P_bienvenida extends javax.swing.JFrame {
         });
         Panel_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Comentario.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
+        Comentario.setFont(new java.awt.Font("Calisto MT", 1, 48)); // NOI18N
         Comentario.setForeground(new java.awt.Color(255, 255, 255));
         Comentario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Comentario.setText("Explora Ofertas Laborales");
-        Panel_fondo.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 430, 70));
+        Panel_fondo.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 580, 70));
 
-        comentarioUno.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        comentarioUno.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         comentarioUno.setForeground(new java.awt.Color(255, 255, 255));
         comentarioUno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         comentarioUno.setText("Conecta directamente con empleadores que requieren profesionales por medio de ");
-        Panel_fondo.add(comentarioUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 630, 30));
+        Panel_fondo.add(comentarioUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 840, 30));
 
-        comentarioDos.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        comentarioDos.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         comentarioDos.setForeground(new java.awt.Color(255, 255, 255));
         comentarioDos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         comentarioDos.setText("la Bolsa de Empleo del Instituto Superior Tecnológico 17 de Julio.");
-        Panel_fondo.add(comentarioDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 520, -1));
+        Panel_fondo.add(comentarioDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 700, -1));
 
-        iniciar.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        iniciar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         iniciar.setForeground(new java.awt.Color(255, 255, 255));
         iniciar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iniciar.setText("Explorar");
@@ -90,11 +91,11 @@ public class P_bienvenida extends javax.swing.JFrame {
                 iniciarMouseExited(evt);
             }
         });
-        Panel_fondo.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 70, 30));
+        Panel_fondo.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 90, 40));
 
         fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Bienvenidaa.png"))); // NOI18N
-        Panel_fondo.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 930, 380));
+        Panel_fondo.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 1280, 510));
 
         P_Head.setBackground(new java.awt.Color(225, 227, 229));
         P_Head.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,11 +134,11 @@ public class P_bienvenida extends javax.swing.JFrame {
         });
         P_inicio.add(lbl_inciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        P_Head.add(P_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 160, 30));
+        P_Head.add(P_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 160, 30));
 
-        Panel_fondo.add(P_Head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1010, 70));
+        Panel_fondo.add(P_Head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1370, 70));
 
-        getContentPane().add(Panel_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 510));
+        getContentPane().add(Panel_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 680));
 
         MenuBar.setBackground(new java.awt.Color(225, 227, 229));
         MenuBar.setBorder(null);
@@ -298,6 +299,9 @@ public class P_bienvenida extends javax.swing.JFrame {
     private void lbl_inciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_inciarMouseClicked
         // TODO add your handling code here:
         P_inicio.setBackground(new Color(27, 107, 184));
+        //Conectar al login administrador
+        Login_Administrador adm = new Login_Administrador();
+        adm.setVisible(true);
     }//GEN-LAST:event_lbl_inciarMouseClicked
 
     private void MB_postulanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MB_postulanteMouseEntered
@@ -310,7 +314,7 @@ public class P_bienvenida extends javax.swing.JFrame {
 
     private void MI_registro_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_registro_eActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        //this.setVisible(false);
         P_creaEmpleador e = new P_creaEmpleador();
         e.setVisible(true);
     }//GEN-LAST:event_MI_registro_eActionPerformed
@@ -321,7 +325,7 @@ public class P_bienvenida extends javax.swing.JFrame {
 
     private void MI_inicio_eActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_inicio_eActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        //this.setVisible(false);
         P_loginEmpleador e = new P_loginEmpleador();
         e.setVisible(true);
     }//GEN-LAST:event_MI_inicio_eActionPerformed

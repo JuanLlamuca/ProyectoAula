@@ -20,9 +20,6 @@ public class P_creaEmpleador extends javax.swing.JFrame {
     private void initComponents() {
 
         P_fondo = new javax.swing.JPanel();
-        P_barraopciones = new javax.swing.JPanel();
-        P_salir = new javax.swing.JPanel();
-        lbl_salir = new javax.swing.JLabel();
         P_head = new javax.swing.JPanel();
         lbl_logo = new javax.swing.JLabel();
         lbl_registrodeempleador = new javax.swing.JLabel();
@@ -74,51 +71,13 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         Panel_registrar = new javax.swing.JPanel();
         lbl_guardar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P_fondo.setBackground(new java.awt.Color(253, 253, 253));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        P_barraopciones.setBackground(new java.awt.Color(225, 227, 229));
-        P_barraopciones.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                P_barraopcionesMouseDragged(evt);
-            }
-        });
-        P_barraopciones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                P_barraopcionesMousePressed(evt);
-            }
-        });
-        P_barraopciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        P_salir.setBackground(new java.awt.Color(225, 227, 229));
-        P_salir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_salir.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        lbl_salir.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_salir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_salir.setText("X");
-        lbl_salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseExited(evt);
-            }
-        });
-        P_salir.add(lbl_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
-
-        P_barraopciones.add(P_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 0, -1, -1));
-
-        P_fondo.add(P_barraopciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 20));
 
         P_head.setBackground(new java.awt.Color(1, 53, 103));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -301,36 +260,6 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbl_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_lbl_salirMouseClicked
-
-    private void lbl_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseEntered
-        // TODO add your handling code here:
-        P_salir.setBackground(Color.red);
-        lbl_salir.setForeground(Color.WHITE);
-    }//GEN-LAST:event_lbl_salirMouseEntered
-
-    private void lbl_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseExited
-        // TODO add your handling code here:
-        P_salir.setBackground(new Color(225, 227, 229));
-        lbl_salir.setForeground(Color.BLACK);
-    }//GEN-LAST:event_lbl_salirMouseExited
-
-    private void P_barraopcionesMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P_barraopcionesMouseDragged
-        // TODO add your handling code here:
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_P_barraopcionesMouseDragged
-
-    private void P_barraopcionesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P_barraopcionesMousePressed
-        // TODO add your handling code here:
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_P_barraopcionesMousePressed
-
     private void lbl_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_guardarMouseClicked
         // TODO add your handling code here:
         //Metodos
@@ -383,10 +312,8 @@ public class P_creaEmpleador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel P_barraopciones;
     private javax.swing.JPanel P_fondo;
     private javax.swing.JPanel P_head;
-    private javax.swing.JPanel P_salir;
     private javax.swing.JPanel Panel_registrar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -424,7 +351,6 @@ public class P_creaEmpleador extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_logo;
     private javax.swing.JLabel lbl_logo1;
     private javax.swing.JLabel lbl_registrodeempleador;
-    private javax.swing.JLabel lbl_salir;
     private javax.swing.JTextPane txt_apellido;
     private javax.swing.JTextPane txt_cedula;
     private javax.swing.JPasswordField txt_clave;
