@@ -1,8 +1,10 @@
 package vistas;
 
 import conexion.Conexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -52,7 +54,7 @@ public class Ofertas_postulante extends javax.swing.JFrame {
         txt_cantidadVacantes = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txt_fechaFinalizacion = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_aplicar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -122,10 +124,15 @@ public class Ofertas_postulante extends javax.swing.JFrame {
 
         jLabel13.setText("Fecha finalización");
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Aplicar");
+        btn_aplicar.setBackground(new java.awt.Color(0, 51, 255));
+        btn_aplicar.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
+        btn_aplicar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_aplicar.setText("Aplicar");
+        btn_aplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_aplicarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,7 +200,7 @@ public class Ofertas_postulante extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 250, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(237, 237, 237)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -252,7 +259,7 @@ public class Ofertas_postulante extends javax.swing.JFrame {
                             .addComponent(jLabel13)
                             .addComponent(txt_fechaFinalizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(68, 68, 68)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_aplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 155, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -262,7 +269,7 @@ public class Ofertas_postulante extends javax.swing.JFrame {
 
     private void tabla_ofertasLaboralesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_ofertasLaboralesMouseClicked
         // TODO add your handling code here:
-       
+
         String sql = "select ofer_tituloReq, ofer_areaNec, ofer_descripcion, ofer_ubicacion, ofer_requisito, ofer_salario, ofer_fePublicacion, ofer_jornada, emp_cedula, ofer_solicitud, ofer_fechaFinaliza from oferta_laboral;";
 
         String titulo;
@@ -311,9 +318,29 @@ public class Ofertas_postulante extends javax.swing.JFrame {
             cn.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error obtener datos_ ofertasPostulantes " + e);
-        } 
-        
+        }
+
     }//GEN-LAST:event_tabla_ofertasLaboralesMouseClicked
+
+    private void btn_aplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aplicarActionPerformed
+        // TODO add your handling code here:
+
+        cn = mysql.conectar();
+        /*
+        try {
+
+            CallableStatement insert = cn.prepareCall("{CALL sp_Postulacion(?, ?)}");
+            insert.setInt(1, );
+            insert.setString(2, );
+            insert.execute();
+            cn.close();
+            JOptionPane.showMessageDialog(null, "TrabajoAplicado");
+
+        } catch (SQLException e) {
+            System.out.println("Error Ctrl_carreras" + e);
+        }
+        */
+    }//GEN-LAST:event_btn_aplicarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -348,7 +375,7 @@ public class Ofertas_postulante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_aplicar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -406,7 +433,6 @@ public class Ofertas_postulante extends javax.swing.JFrame {
         }
     }
 
-    
     /*
     public void llenarDatos() {
         String sql = "select ofer_tituloReq, ofer_areaNec, ofer_descripcion, ofer_ubicacion, ofer_requisito, ofer_salario, ofer_fePublicacion, ofer_jornada, emp_cedula, ofer_solicitud, ofer_fechaFinaliza from oferta_laboral;";
@@ -461,5 +487,5 @@ public class Ofertas_postulante extends javax.swing.JFrame {
 
     }
 
-*/
+     */
 }

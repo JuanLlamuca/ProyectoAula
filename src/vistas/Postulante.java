@@ -169,6 +169,8 @@ public class Postulante extends javax.swing.JFrame {
 
     private void btn_postularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postularActionPerformed
         // TODO add your handling code here:
+        Ofertas_postulante ofertas= new Ofertas_postulante();
+        ofertas.setVisible(true);
     }//GEN-LAST:event_btn_postularActionPerformed
 
     /**
