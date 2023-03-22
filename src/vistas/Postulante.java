@@ -51,8 +51,8 @@ public class Postulante extends javax.swing.JFrame {
         btn_crearHoja = new javax.swing.JButton();
         btn_postular = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn_reportePostulacaciones = new javax.swing.JButton();
         btn_imprimir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,12 +82,15 @@ public class Postulante extends javax.swing.JFrame {
 
         btn_postular.setText("Postular empleos.");
         btn_postular.setMinimumSize(new java.awt.Dimension(12, 23));
+        btn_postular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_postularActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Postulante");
-
-        btn_reportePostulacaciones.setText("Generar reportes de postulaciones.");
 
         btn_imprimir.setText("Imprimir hoja de vida");
         btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -96,21 +99,23 @@ public class Postulante extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Visualizar postulaciones");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_imprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_crearHoja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_postular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_reportePostulacaciones, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_imprimir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_crearHoja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_postular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -122,11 +127,11 @@ public class Postulante extends javax.swing.JFrame {
                 .addComponent(btn_crearHoja, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_postular, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_reportePostulacaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(507, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(513, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,6 +166,10 @@ public class Postulante extends javax.swing.JFrame {
     private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_imprimirActionPerformed
+
+    private void btn_postularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_postularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,110 +210,11 @@ public class Postulante extends javax.swing.JFrame {
     private javax.swing.JButton btn_crearHoja;
     private javax.swing.JButton btn_imprimir;
     private javax.swing.JButton btn_postular;
-    private javax.swing.JButton btn_reportePostulacaciones;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
-  
-     public void ImprimirHojaVida() {
-        Document documento = new Document(PageSize.A4.rotate());
-        try {
-            String ruta = System.getProperty("user.home");
-            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/" + "ReportePostulantes" + ".pdf"));
-
-            com.itextpdf.text.Image header = com.itextpdf.text.Image.getInstance("C:\\Bolsa de empleo\\Sistema_bolsa_de_empleo\\src\\imagenes\\Logo_secundario_positivo.jpg");
-            header.scaleToFit(300, 250);
-            header.setAlignment(Chunk.ALIGN_CENTER);
-
-            Paragraph parrafo = new Paragraph();
-            parrafo.setAlignment(Paragraph.ALIGN_CENTER);
-            parrafo.add("Informacion de postulantes \n\n");
-            parrafo.setFont(FontFactory.getFont("Calibri Light", 8, Font.BOLD, BaseColor.DARK_GRAY));
-
-            documento.open();
-            documento.add(header);
-            documento.add(parrafo);
-
-            PdfPTable tabla_postulantes = new PdfPTable(10);
-            tabla_postulantes.setWidthPercentage(100);
-            tabla_postulantes.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER); // establecer la alineación horizontal
-            tabla_postulantes.addCell("Cédula");
-            tabla_postulantes.addCell("Nombres");
-            tabla_postulantes.addCell("Apellidos");
-            tabla_postulantes.addCell("Telefono 1");
-            tabla_postulantes.addCell("Telefono 2");
-            tabla_postulantes.addCell("Correo");
-            tabla_postulantes.addCell("Direccion");
-            tabla_postulantes.addCell("Educacion");
-            tabla_postulantes.addCell("Fecha nacimiento");
-            tabla_postulantes.addCell("carr_id");
-
-            try {
-                cn = mysql.conectar();
-                PreparedStatement pst = cn.prepareStatement("select * from postulante ");
-                rs = pst.executeQuery();
-
-                if (rs.next()) {
-                    do {
-                        tabla_postulantes.addCell(rs.getString(1));
-                        tabla_postulantes.addCell(rs.getString(2));
-                        tabla_postulantes.addCell(rs.getString(3));
-                        tabla_postulantes.addCell(rs.getString(4));
-                        tabla_postulantes.addCell(rs.getString(5));
-                        tabla_postulantes.addCell(rs.getString(6));
-                        tabla_postulantes.addCell(rs.getString(7));
-                        tabla_postulantes.addCell(rs.getString(8));
-                        tabla_postulantes.addCell(rs.getString(9));
-                        tabla_postulantes.addCell(rs.getString(10));
-                    } while (rs.next());
-
-                    documento.add(tabla_postulantes);
-                }
-                Paragraph parrafo2 = new Paragraph();
-                parrafo2.setAlignment(Paragraph.ALIGN_CENTER);
-                parrafo2.add("\n");
-                parrafo2.add("Ofertas disponibles para el tipo de carrera");
-                parrafo2.setFont(FontFactory.getFont("Calibri Light", 8, Font.BOLD, BaseColor.DARK_GRAY));
-
-                documento.add(parrafo2);
-                PdfPTable tabla_carreras = new PdfPTable(3);
-                tabla_carreras.addCell("id");
-                tabla_carreras.addCell("Nombre carrera");
-                tabla_carreras.addCell("Descripcion Carrera");
-
-                try {
-                    Connection cn2 = mysql.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement(
-                            " select * from carrera where carr_id=1");
-
-                    ResultSet rs2 = pst2.executeQuery();
-
-                    if (rs2.next()) {
-                        do {
-                            tabla_carreras.addCell(rs2.getString(1));
-                            tabla_carreras.addCell(rs2.getString(2));
-                            tabla_carreras.addCell(rs2.getString(3));
-                        } while (rs2.next());
-
-                        documento.add(tabla_carreras);
-                    }
-
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Error al cargar carreras" + e);
-                }
-
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error al cargar postulantes" + e);
-            }
-
-            documento.close();
-            JOptionPane.showMessageDialog(null, "Reporte generado con exito");
-        } catch (DocumentException | IOException e) {
-            System.out.println("Error en pdf o ruta de imagen " + e);
-            JOptionPane.showMessageDialog(null, "Error al generar el pdf");
-        }
-    }
-
+ 
 }
