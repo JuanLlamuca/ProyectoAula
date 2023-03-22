@@ -64,6 +64,7 @@ public class Ctrl_Postulante {
         return respuesta;
     }
 
+
         public boolean ValidaPostulante(Postulante objeto){
             Boolean respuesta = false;
             
@@ -86,4 +87,5 @@ public class Ctrl_Postulante {
         }
         return respuesta;       
     }
+
 }

@@ -9,7 +9,8 @@ public class P_bienvenida extends javax.swing.JFrame {
     
     public P_bienvenida() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
+        this.setLocationRelativeTo(null);
     }
     
 

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import modelo.Empleador_j;
 
+
 public class P_modificaEmpleador extends javax.swing.JFrame {
     
     public P_modificaEmpleador() {
@@ -454,7 +455,8 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
                 empleador.setEmp_corrEmp(txt_emailEmp.getText().trim());
                 empleador.setEmp_desEmp(txt_descripcion.getText().trim());
                 empleador.setEmp_clave(String.valueOf(txt_clave.getPassword()));
-            
+                
+
             if (controlE.ModificarEmpleador(empleador)) {
                 JOptionPane.showMessageDialog(null, "Datos Modificados correctamente");
                 
