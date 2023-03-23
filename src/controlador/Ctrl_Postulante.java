@@ -5,7 +5,7 @@ import modelo.Postulante;
 import conexion.Conexion;
 import java.sql.*;
 import javax.swing.JOptionPane;
-
+import modelo.Empleador_j;
 
 public class Ctrl_Postulante {
 
@@ -64,28 +64,26 @@ public class Ctrl_Postulante {
         return respuesta;
     }
 
+    public boolean ValidaPostulante(Postulante objeto) {
+        Boolean respuesta = false;
 
-        public boolean ValidaPostulante(Postulante objeto){
-            Boolean respuesta = false;
-            
-            try{
-            
+        try {
+
             CallableStatement valid = cn.prepareCall("{CALL sp_validaPostulante(?, ?)}");
-            
+
             valid.setInt(1, objeto.getCedula());
             valid.setString(2, objeto.getClave());
-            
-            if (valid.executeUpdate() != 0){
+
+            if (valid.executeUpdate() != 0) {
                 respuesta = true;
             }
             cn.close();
-            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
             
-        }
-        catch (SQLException e) {
+
+        } catch (SQLException e) {
             System.out.println("Error al consultar a la DB: " + e);
         }
-        return respuesta;       
+        return respuesta;
     }
 
 }

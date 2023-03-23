@@ -55,7 +55,7 @@ public class Crtl_Hoja_vida {
             insert.setBytes(21, objeto.getImagen()); //hoj_foto
             insert.execute();
             cn.close();
-            JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
+            JOptionPane.showMessageDialog(null, "Hoja de vida generada con exito");
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error Ctrl_hoja_vida crearhojavida" + e);
