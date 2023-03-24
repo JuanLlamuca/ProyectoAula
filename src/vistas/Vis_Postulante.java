@@ -36,7 +36,6 @@ public class Vis_Postulante extends javax.swing.JFrame {
         btn_crearHoja = new javax.swing.JButton();
         btn_postular = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn_imprimir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
@@ -59,26 +58,29 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(299, 299, 299)
+                .addGap(301, 301, 301)
                 .addComponent(jLabel2)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 0, 1270, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 0, 1270, 100));
 
         jPanel2.setBackground(new java.awt.Color(1, 53, 103));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_crearHoja.setBackground(new java.awt.Color(1, 53, 103));
         btn_crearHoja.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        btn_crearHoja.setForeground(new java.awt.Color(255, 255, 255));
         btn_crearHoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono editar.png"))); // NOI18N
         btn_crearHoja.setText("Crear hoja de vida");
+        btn_crearHoja.setBorder(null);
         btn_crearHoja.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_crearHoja.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btn_crearHoja.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +90,11 @@ public class Vis_Postulante extends javax.swing.JFrame {
         });
         jPanel2.add(btn_crearHoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 240, 55));
 
+        btn_postular.setBackground(new java.awt.Color(1, 53, 103));
+        btn_postular.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        btn_postular.setForeground(new java.awt.Color(255, 255, 255));
         btn_postular.setText("Postular empleos.");
+        btn_postular.setBorder(null);
         btn_postular.setMinimumSize(new java.awt.Dimension(12, 23));
         btn_postular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,16 +108,12 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jLabel1.setText("Postulante");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
-        btn_imprimir.setText("Imprimir hoja de vida");
-        btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_imprimirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 240, 55));
-
+        jButton1.setBackground(new java.awt.Color(1, 53, 103));
+        jButton1.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Visualizar postulaciones");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 240, 55));
+        jButton1.setBorder(null);
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 240, 55));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura_negativo.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 110));
@@ -137,7 +139,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
                         .addGap(399, 399, 399)
                         .addComponent(jLabel4))
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(454, 454, 454)
+                        .addGap(461, 461, 461)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(488, Short.MAX_VALUE))
         );
@@ -146,9 +148,9 @@ public class Vis_Postulante extends javax.swing.JFrame {
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addGap(216, 216, 216)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         getContentPane().add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 1260, 810));
@@ -169,14 +171,16 @@ public class Vis_Postulante extends javax.swing.JFrame {
         contenedor.repaint();
     }//GEN-LAST:event_btn_crearHojaActionPerformed
 
-    private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_imprimirActionPerformed
-
     private void btn_postularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postularActionPerformed
         // TODO add your handling code here:
-        Ofertas_postulante ofertas= new Ofertas_postulante();
-        ofertas.setVisible(true);
+        ofertasPostulante oferta=new ofertasPostulante();
+       oferta.setSize(1260, 810);
+        oferta.setLocation(0,0);
+        
+        contenedor.removeAll();
+        contenedor.add(oferta,BorderLayout.CENTER);
+        contenedor.revalidate();
+        contenedor.repaint();
     }//GEN-LAST:event_btn_postularActionPerformed
 
     /**
@@ -217,7 +221,6 @@ public class Vis_Postulante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_crearHoja;
-    private javax.swing.JButton btn_imprimir;
     private javax.swing.JButton btn_postular;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton jButton1;

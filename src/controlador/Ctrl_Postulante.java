@@ -5,7 +5,8 @@ import modelo.Postulante;
 import conexion.Conexion;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import modelo.Empleador_j;
+
+
 
 public class Ctrl_Postulante {
 
@@ -64,6 +65,34 @@ public class Ctrl_Postulante {
         return respuesta;
     }
 
+  
+
+    public boolean eliminarEstudiante(Postulante objeto) {
+        boolean respuesta = false;
+        cn = mysql.conectar();
+        try {
+            CallableStatement eliminar = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            eliminar.setInt(1, 2);
+            eliminar.setInt(2, objeto.getCedula());
+            eliminar.setString(3, objeto.getNombres());
+            eliminar.setString(4, objeto.getApellidos());
+            eliminar.setInt(5, objeto.getTelefonoP());
+            eliminar.setInt(6, objeto.getTelefonoD());
+            eliminar.setString(7, objeto.getCorreo());
+            eliminar.setString(8, objeto.getDireccion());
+            eliminar.setString(9, objeto.getEduacion());
+            eliminar.setString(10, objeto.getNacimiento());
+            eliminar.setInt(11, 0);
+            eliminar.execute();
+            
+            cn.close();
+            JOptionPane.showMessageDialog(null, "Eliminado");
+        } catch (SQLException e) {
+            System.out.println("Error Ctrl_Postulante " + e);
+        }
+        return respuesta;
+    }
+
     public boolean ValidaPostulante(Postulante objeto) {
         Boolean respuesta = false;
 
@@ -78,7 +107,6 @@ public class Ctrl_Postulante {
                 respuesta = true;
             }
             cn.close();
-            
 
         } catch (SQLException e) {
             System.out.println("Error al consultar a la DB: " + e);

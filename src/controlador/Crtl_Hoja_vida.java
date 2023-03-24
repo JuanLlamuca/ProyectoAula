@@ -26,7 +26,7 @@ public class Crtl_Hoja_vida {
     public Statement consulta;
     public ResultSet resultado;
 
-    public boolean CrearHojaVida(HojaVida objeto) {
+    public boolean CrearHojadeVida(HojaVida objeto) {
         boolean respuesta = false;
         cn = mysql.conectar();
         try {

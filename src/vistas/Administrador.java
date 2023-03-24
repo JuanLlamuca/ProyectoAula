@@ -252,26 +252,22 @@ public class Administrador extends javax.swing.JFrame {
 
     private void menu_modificarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_modificarEstudianteActionPerformed
         // TODO add your handling code here:
-        ModificarEstudiante estudiante = new ModificarEstudiante();
-        estudiante.setVisible(true);
+       
     }//GEN-LAST:event_menu_modificarEstudianteActionPerformed
 
     private void menu_mostrarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_mostrarCarreraActionPerformed
         // TODO add your handling code here:
-        MostrarCarreras carreras = new MostrarCarreras();
-        carreras.setVisible(true);
+       
     }//GEN-LAST:event_menu_mostrarCarreraActionPerformed
 
     private void menu_añadirEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_añadirEstudianteActionPerformed
         // TODO add your handling code here:
-        AñadirEstudiante estudiante = new AñadirEstudiante();
-        estudiante.setVisible(true);
+       
     }//GEN-LAST:event_menu_añadirEstudianteActionPerformed
 
     private void menu_mostrarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_mostrarEstudianteActionPerformed
         // TODO add your handling code here:
-        MostrarEstudiante tabla = new MostrarEstudiante();
-        tabla.setVisible(true);
+     
     }//GEN-LAST:event_menu_mostrarEstudianteActionPerformed
 
     private void menu_ofertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ofertasActionPerformed
@@ -282,20 +278,17 @@ public class Administrador extends javax.swing.JFrame {
 
     private void menu_añadirCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_añadirCarreraActionPerformed
         // TODO add your handling code here:
-        AñadirCarreras carrera = new AñadirCarreras();
-        carrera.setVisible(true);
+       
     }//GEN-LAST:event_menu_añadirCarreraActionPerformed
 
     private void menu_modifcarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_modifcarCarreraActionPerformed
         // TODO add your handling code here:
-        ModificarCarreras carreras = new ModificarCarreras();
-        carreras.setVisible(true);
+       
     }//GEN-LAST:event_menu_modifcarCarreraActionPerformed
 
     private void menu_eliminarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_eliminarCarreraActionPerformed
         // TODO add your handling code here:
-        EliminarCarrera carreras = new EliminarCarrera();
-        carreras.setVisible(true);
+       
     }//GEN-LAST:event_menu_eliminarCarreraActionPerformed
 
     private void menu_mostrarEmpleadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_mostrarEmpleadorActionPerformed

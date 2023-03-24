@@ -137,17 +137,17 @@ public class MostrarOfertas extends javax.swing.JFrame {
             modelo = (DefaultTableModel) tabla_ofertas.getModel();
             while (rs.next()) {
                 ofertas[0] = rs.getInt("ofer_id");
-                ofertas[1] = rs.getString("ofer_nombreEmp");
-                ofertas[2] = rs.getString("ofer_tituloReq");
-                ofertas[3] = rs.getString("ofer_areaNec");
-                ofertas[4] = rs.getString("ofer_descripcion");
-                ofertas[5] = rs.getString("ofer_ubicacion");
-                ofertas[6] = rs.getString("ofer_requisito");
-                ofertas[7] = rs.getString("ofer_salario");
-                ofertas[8] = rs.getString("ofer_fePublicacion");
-                ofertas[9] = rs.getString("ofer_jornada");
-                ofertas[10] = rs.getInt("emp_cedula");
-                ofertas[11] = rs.getString("ofer_solicitud");
+                ofertas[1] = rs.getString("ofer_tituloReq");
+                ofertas[2] = rs.getString("ofer_areaNec");
+                ofertas[3] = rs.getString("ofer_descripcion");
+                ofertas[4] = rs.getString("ofer_ubicacion");
+                ofertas[5] = rs.getString("ofer_requisito");
+                ofertas[6] = rs.getString("ofer_salario");
+                ofertas[7] = rs.getString("ofer_fePublicacion");
+                ofertas[8] = rs.getString("ofer_jornada");
+                ofertas[9] = rs.getInt("emp_cedula");
+                ofertas[10] = rs.getString("ofer_solicitud");
+                ofertas[11] = rs.getString("ofer_fechaFinaliza");
                 modelo.addRow(ofertas);
             }
             tabla_ofertas.setModel(modelo);
