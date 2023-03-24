@@ -240,8 +240,9 @@ public class Lista_ofertas extends javax.swing.JPanel {
 
     private void tabla_ofertasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_ofertasMouseClicked
         // TODO add your handling code here:
-         String sql = "select * from lista_oferta;";
+   
 
+        int id;
         String titulo;
         String area;
         String descripcion;
@@ -254,39 +255,35 @@ public class Lista_ofertas extends javax.swing.JPanel {
         String solicitud;
         String fFinaliza;
 
-        try {
-            cn = mysql.conectar();
-            st = cn.createStatement();
-            rs = st.executeQuery(sql);
+        
+        int fila = tabla_ofertas.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione una fila");
+        } else {
+            id = Integer.parseInt((String) tabla_ofertas.getValueAt(fila, 0).toString());
+            titulo = (String) tabla_ofertas.getValueAt(fila, 1);
+            area = (String) tabla_ofertas.getValueAt(fila, 2);
+            descripcion = (String) tabla_ofertas.getValueAt(fila, 3);
+            ubicacion = (String) tabla_ofertas.getValueAt(fila, 4);
+            requisitos = (String) tabla_ofertas.getValueAt(fila, 5);
+            salario = (String) tabla_ofertas.getValueAt(fila, 6);
+            fpublicacion = (String) tabla_ofertas.getValueAt(fila, 7);
+            jornada = (String) tabla_ofertas.getValueAt(fila, 8);
+            cedula = Integer.parseInt((String) tabla_ofertas.getValueAt(fila, 9).toString());
+            solicitud = (String) tabla_ofertas.getValueAt(fila, 10);
+            fFinaliza = (String) tabla_ofertas.getValueAt(fila, 11);
 
-            while (rs.next()) {
-                titulo = rs.getString("ofer_tituloReq");
-                area = rs.getString("ofer_areaNec");
-                descripcion = rs.getString("ofer_descripcion");
-                ubicacion = rs.getString("ofer_ubicacion");
-                requisitos = rs.getString("ofer_requisito");
-                salario = rs.getString("ofer_salario");
-                fpublicacion = rs.getString("ofer_fePublicacion");
-                jornada = rs.getString("ofer_jornada");
-                cedula = rs.getInt("emp_cedula");
-                solicitud = rs.getString("ofer_solicitud");
-                fFinaliza = rs.getString("ofer_fechaFinaliza");
-
-                txt_tituloRequerido.setText(titulo);
-                txt_areaNecesitada.setText(area);
-                txt_descripcion.setText(descripcion);
-                txt_ubicacion.setText(ubicacion);
-                txt_requisitos.setText(requisitos);
-                txt_salario.setText(salario);
-                txt_fechaPublicacion.setText(fpublicacion);
-                txt_jornada.setText(jornada);
-                txt_cedulaEmpleador.setText("" + cedula);
-                txt_cantidadVacantes.setText(solicitud);
-                txt_fechaFinalizacion.setText(fFinaliza);
-            }
-            cn.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error obtener datos_ ofertasPostulantes " + e);
+            txt_tituloRequerido.setText(titulo);
+            txt_areaNecesitada.setText(area);
+            txt_descripcion.setText(descripcion);
+            txt_ubicacion.setText(ubicacion);
+            txt_requisitos.setText(requisitos);
+            txt_salario.setText(salario);
+            txt_fechaPublicacion.setText(fpublicacion);
+            txt_jornada.setText(jornada);
+            txt_cedulaEmpleador.setText("" + cedula);
+            txt_cantidadVacantes.setText(solicitud);
+            txt_fechaFinalizacion.setText(fFinaliza);
         }
     }//GEN-LAST:event_tabla_ofertasMouseClicked
 

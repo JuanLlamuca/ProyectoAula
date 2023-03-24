@@ -275,7 +275,7 @@ public class ofertasPostulante extends javax.swing.JPanel {
         // TODO add your handling code here:
 
         String sql = "select * from lista_oferta;";
-
+        int id;
         String titulo;
         String area;
         String descripcion;
@@ -317,6 +317,31 @@ public class ofertasPostulante extends javax.swing.JPanel {
                 txt_cedulaEmpleador.setText("" + cedula);
                 txt_cantidadVacantes.setText(solicitud);
                 txt_fechaFinalizacion.setText(fFinaliza);
+                
+                int fila = tabla_ofertasLaborales.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione una fila");
+        } else {
+            
+            titulo = (String) tabla_ofertasLaborales.getValueAt(fila, 0);
+            ubicacion = (String) tabla_ofertasLaborales.getValueAt(fila, 1);
+            requisitos = (String) tabla_ofertasLaborales.getValueAt(fila, 2);
+            salario = (String) tabla_ofertasLaborales.getValueAt(fila, 3);
+            fpublicacion = (String)tabla_ofertasLaborales.getValueAt(fila, 4);
+            solicitud = (String)tabla_ofertasLaborales.getValueAt(fila, 5);
+            
+            txt_tituloRequerido.setText(titulo);
+            txt_areaNecesitada.setText(area);
+            txt_descripcion.setText(descripcion);
+            txt_ubicacion.setText(ubicacion);
+            txt_requisitos.setText(requisitos);
+            txt_salario.setText(salario);
+            txt_fechaPublicacion.setText(fpublicacion);
+            txt_jornada.setText(jornada);
+            txt_cedulaEmpleador.setText("" + cedula);
+            txt_cantidadVacantes.setText(solicitud);
+            txt_fechaFinalizacion.setText(fFinaliza);
+        }
 
             }
             cn.close();

@@ -272,8 +272,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void menu_ofertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ofertasActionPerformed
         // TODO add your handling code here:
-        MostrarOfertas oferta = new MostrarOfertas();
-        oferta.setVisible(true);
+     
     }//GEN-LAST:event_menu_ofertasActionPerformed
 
     private void menu_añadirCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_añadirCarreraActionPerformed
@@ -293,8 +292,7 @@ public class Administrador extends javax.swing.JFrame {
 
     private void menu_mostrarEmpleadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_mostrarEmpleadorActionPerformed
         // TODO add your handling code here:
-        MostrarEmpleador empleador = new MostrarEmpleador();
-        empleador.setVisible(true);
+     
     }//GEN-LAST:event_menu_mostrarEmpleadorActionPerformed
 
     private void menu_reportePostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_reportePostulanteActionPerformed

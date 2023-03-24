@@ -97,12 +97,22 @@ public class Vista_administrador extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Lista empleadores");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 220, 50));
 
         jButton5.setBackground(new java.awt.Color(1, 53, 103));
         jButton5.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Reportes PDF");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 220, 50));
 
         jButton6.setBackground(new java.awt.Color(1, 53, 103));
@@ -211,6 +221,30 @@ public class Vista_administrador extends javax.swing.JFrame {
         contenedor.revalidate();
         contenedor.repaint();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+         lista_Empleadores empleadores = new lista_Empleadores();
+        empleadores.setSize(1464, 722);
+        empleadores.setLocation(0, 0);
+
+        contenedor.removeAll();
+        contenedor.add(empleadores, BorderLayout.CENTER);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+         ReportesPDF pdf = new ReportesPDF();
+        pdf.setSize(1464, 722);
+        pdf.setLocation(0, 0);
+
+        contenedor.removeAll();
+        contenedor.add(pdf, BorderLayout.CENTER);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
