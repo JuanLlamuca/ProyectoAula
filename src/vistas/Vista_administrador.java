@@ -119,6 +119,11 @@ public class Vista_administrador extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Estadistica ofertas");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 220, 50));
 
         jLabel3.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
@@ -245,6 +250,18 @@ public class Vista_administrador extends javax.swing.JFrame {
         contenedor.revalidate();
         contenedor.repaint();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+          Grafica gra = new Grafica();
+        gra.setSize(1464, 722);
+        gra.setLocation(0, 0);
+
+        contenedor.removeAll();
+        contenedor.add(gra, BorderLayout.CENTER);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

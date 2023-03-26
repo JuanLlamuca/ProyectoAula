@@ -4,6 +4,9 @@
  */
 package vistas;
 
+import controlador.PDFS;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juanl
@@ -33,7 +36,7 @@ public class ReportesPDF extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btn_empleadores = new javax.swing.JButton();
-        btn_ofertas = new javax.swing.JButton();
+        btn_postulantes = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(225, 227, 229));
         setForeground(new java.awt.Color(225, 227, 229));
@@ -52,6 +55,11 @@ public class ReportesPDF extends javax.swing.JPanel {
         btn_carreras.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_carreras.setForeground(new java.awt.Color(255, 255, 255));
         btn_carreras.setText("Generar");
+        btn_carreras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_carrerasActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -59,17 +67,27 @@ public class ReportesPDF extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Generar reportes lista de ofertas laborales");
+        jLabel5.setText("Generar reportes de postulantes");
 
         btn_empleadores.setBackground(new java.awt.Color(1, 53, 103));
         btn_empleadores.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_empleadores.setForeground(new java.awt.Color(255, 255, 255));
         btn_empleadores.setText("Generar");
+        btn_empleadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_empleadoresActionPerformed(evt);
+            }
+        });
 
-        btn_ofertas.setBackground(new java.awt.Color(1, 53, 103));
-        btn_ofertas.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
-        btn_ofertas.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ofertas.setText("Generar");
+        btn_postulantes.setBackground(new java.awt.Color(1, 53, 103));
+        btn_postulantes.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        btn_postulantes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_postulantes.setText("Generar");
+        btn_postulantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_postulantesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,16 +106,16 @@ public class ReportesPDF extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addGap(112, 112, 112)
                         .addComponent(jLabel4)
-                        .addGap(92, 92, 92)
+                        .addGap(155, 155, 155)
                         .addComponent(jLabel5)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(btn_empleadores, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(280, 280, 280)
                 .addComponent(btn_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_ofertas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_postulantes, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(251, 251, 251))
         );
         layout.setVerticalGroup(
@@ -114,17 +132,39 @@ public class ReportesPDF extends javax.swing.JPanel {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_carreras, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_ofertas, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_postulantes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_empleadores, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 343, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_empleadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_empleadoresActionPerformed
+        // TODO add your handling code here:
+        PDFS empleadores = new PDFS();
+        empleadores.ReporteEmpleadores();
+        JOptionPane.showMessageDialog(null, "Dirigase al escritorio ");
+    }//GEN-LAST:event_btn_empleadoresActionPerformed
+
+    private void btn_carrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_carrerasActionPerformed
+        // TODO add your handling code here:
+        PDFS carreras = new PDFS();
+        carreras.ReporteCarreras();
+        JOptionPane.showMessageDialog(null, "Dirigase al escritorio ");
+    }//GEN-LAST:event_btn_carrerasActionPerformed
+
+    private void btn_postulantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postulantesActionPerformed
+        // TODO add your handling code here:
+        PDFS ofertas = new PDFS();
+        ofertas.ReportePostulantes();
+        JOptionPane.showMessageDialog(null, "Dirigase al escritorio ");
+        
+    }//GEN-LAST:event_btn_postulantesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_carreras;
     private javax.swing.JButton btn_empleadores;
-    private javax.swing.JButton btn_ofertas;
+    private javax.swing.JButton btn_postulantes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

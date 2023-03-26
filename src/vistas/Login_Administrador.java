@@ -228,7 +228,7 @@ public class Login_Administrador extends javax.swing.JFrame {
             if (usu.equals(usuario) && pass.equals(contraseña) ) {
                 
                 JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
-                Administrador menu=new Administrador();
+                Vista_administrador menu=new Vista_administrador();
                 menu.setVisible(true);
                 this.dispose();
             } else {

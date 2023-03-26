@@ -5,7 +5,8 @@
 package vistas;
 
 import java.awt.BorderLayout;
-
+import vistas_empleador.JF_loginPostulante;
+import vistas_empleador.P_loginEmpleador;
 
 /**
  *
@@ -18,7 +19,8 @@ public class Vis_Postulante extends javax.swing.JFrame {
      */
     public Vis_Postulante() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
+        lbl_recibeced.setText(JF_loginPostulante.cedula);
     }
 
     /**
@@ -38,6 +40,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        lbl_recibeced = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -67,10 +70,10 @@ public class Vis_Postulante extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 0, 1270, 100));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 0, 1270, 80));
 
         jPanel2.setBackground(new java.awt.Color(1, 53, 103));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,17 +109,26 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Postulante");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(1, 53, 103));
         jButton1.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Visualizar postulaciones");
         jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 240, 55));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura_negativo.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 110));
+
+        lbl_recibeced.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        lbl_recibeced.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(lbl_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 150, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 220, 890));
 
@@ -161,27 +173,39 @@ public class Vis_Postulante extends javax.swing.JFrame {
     private void btn_crearHojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearHojaActionPerformed
         // TODO add your handling code here:
         ////hoja.setVisible(true);
-        CrearHojadeVida hoja=new CrearHojadeVida();
+        CrearHojadeVida hoja = new CrearHojadeVida();
         hoja.setSize(1260, 810);
-        hoja.setLocation(0,0);
-        
+        hoja.setLocation(0, 0);
+
         contenedor.removeAll();
-        contenedor.add(hoja,BorderLayout.CENTER);
+        contenedor.add(hoja, BorderLayout.CENTER);
         contenedor.revalidate();
         contenedor.repaint();
     }//GEN-LAST:event_btn_crearHojaActionPerformed
 
     private void btn_postularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postularActionPerformed
         // TODO add your handling code here:
-        ofertasPostulante oferta=new ofertasPostulante();
-       oferta.setSize(1260, 810);
-        oferta.setLocation(0,0);
-        
+        ofertasPostulante oferta = new ofertasPostulante();
+        oferta.setSize(1260, 810);
+        oferta.setLocation(0, 0);
+
         contenedor.removeAll();
-        contenedor.add(oferta,BorderLayout.CENTER);
+        contenedor.add(oferta, BorderLayout.CENTER);
         contenedor.revalidate();
         contenedor.repaint();
     }//GEN-LAST:event_btn_postularActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        VisualizarPostulaciones postulaciones = new VisualizarPostulaciones();
+        postulaciones.setSize(1260, 810);
+        postulaciones.setLocation(0, 0);
+
+        contenedor.removeAll();
+        contenedor.add(postulaciones, BorderLayout.CENTER);
+        contenedor.revalidate();
+        contenedor.repaint();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +255,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_recibeced;
     // End of variables declaration//GEN-END:variables
 
- 
 }

@@ -10,6 +10,8 @@ import vistas.Vis_Postulante;
 import static vistas_empleador.P_loginEmpleador.cedula;
 
 public class JF_loginPostulante extends javax.swing.JFrame {
+    
+    public static String cedula ="0";  //La variable tipo static que se envía a cualquier Jframe la información
 
     int xMouse, yMouse;
 

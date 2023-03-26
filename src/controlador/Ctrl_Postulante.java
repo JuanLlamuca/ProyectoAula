@@ -18,7 +18,7 @@ public class Ctrl_Postulante {
         cn = mysql.conectar();
         try {
 
-            CallableStatement insert = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            CallableStatement insert = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}");
             insert.setInt(1, 0);
             insert.setInt(2, objeto.getCedula());
             insert.setString(3, objeto.getNombres());
@@ -30,12 +30,13 @@ public class Ctrl_Postulante {
             insert.setString(9, objeto.getEduacion());
             insert.setString(10, objeto.getNacimiento());
             insert.setInt(11, objeto.getCarrera());
+            insert.setString(12, objeto.getClave());
             insert.execute();
             cn.close();
             JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
 
         } catch (SQLException e) {
-            System.out.println("Error Ctrl_carreras" + e);
+            System.out.println("Error Ctrl_postulante" + e);
         }
         return respuesta;
     }
@@ -44,7 +45,7 @@ public class Ctrl_Postulante {
         boolean respuesta = false;
         cn = mysql.conectar();
         try {
-            CallableStatement modificar = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            CallableStatement modificar = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}");
             modificar.setInt(1, 1);
             modificar.setInt(2, objeto.getCedula());
             modificar.setString(3, objeto.getNombres());
@@ -56,6 +57,7 @@ public class Ctrl_Postulante {
             modificar.setString(9, objeto.getEduacion());
             modificar.setString(10, objeto.getNacimiento());
             modificar.setInt(11, 0);
+            modificar.setString(12, objeto.getClave());
             modificar.execute();
             cn.close();
             JOptionPane.showMessageDialog(null, "Datos modificados con exito");
