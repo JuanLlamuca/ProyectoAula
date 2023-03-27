@@ -1,14 +1,20 @@
 package vistas_empleador;
 
+
 import controlador.Ctrl_Postulante;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
 import modelo.Postulante;
+import vistas.Vis_Postulante;
+
 
 public class JF_loginPostulante extends javax.swing.JFrame {
-
-        int xMouse, yMouse;
     
+    public static String cedula ="0";  //La variable tipo static que se envía a cualquier Jframe la información
+
+    int xMouse, yMouse;
+
     public JF_loginPostulante() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -128,7 +134,7 @@ public class JF_loginPostulante extends javax.swing.JFrame {
 
     private void btn_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_entrarMouseClicked
         // TODO add your handling code here:
-        
+
         this.login();
     }//GEN-LAST:event_btn_entrarMouseClicked
 
@@ -146,9 +152,36 @@ public class JF_loginPostulante extends javax.swing.JFrame {
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         // TODO add your handling code here:
+        login();
+
     }//GEN-LAST:event_btn_entrarActionPerformed
 
-    
+
+    private void lbl_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseClicked
+
+    }//GEN-LAST:event_lbl_salirMouseClicked
+
+    private void lbl_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseEntered
+
+    }//GEN-LAST:event_lbl_salirMouseEntered
+
+    private void lbl_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseExited
+
+    }//GEN-LAST:event_lbl_salirMouseExited
+
+    private void p_barraOpcionesMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_barraOpcionesMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_p_barraOpcionesMouseDragged
+
+    private void p_barraOpcionesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_barraOpcionesMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_p_barraOpcionesMousePressed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -199,39 +232,37 @@ public class JF_loginPostulante extends javax.swing.JFrame {
 
     //Espacio para crear los métodos
     private void login() {
-    
-    Postulante postulante = new Postulante();
-    Ctrl_Postulante controlPostulante = new Ctrl_Postulante();
-    
-    String pass = String.valueOf(obten_clave.getPassword());
-   
-    if(!obten_user.getText().isEmpty() && !obten_clave.getText().isEmpty()){
-        
-        postulante.setCedula(Integer.parseInt(obten_user.getText().trim())); //el .trim elimina espacios al final o inicio de la cadena de texto
-        postulante.setClave(pass.trim());  
-        
-        if (controlPostulante.ValidaPostulante(postulante)){
+
+        Postulante postulante = new Postulante();
+        Ctrl_Postulante controlPostulante = new Ctrl_Postulante();
+
+        String pass = String.valueOf(obten_clave.getPassword());
+
+        if (!obten_user.getText().isEmpty() && !obten_clave.getText().isEmpty()) {
+
+            postulante.setCedula(Integer.parseInt(obten_user.getText().trim())); //el .trim elimina espacios al final o inicio de la cadena de texto
+            postulante.setClave(pass.trim());
             
-             JOptionPane.showMessageDialog(null, "Sesión iniciada...");
-     
-             this.setVisible(false);
-             //Paso al menú principal
-             //P_menu m = new P_menu();
-             //m.setVisible(true);             
-        
             //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar  
-                
-                //int info = empleador.getEmp_ced();
+                int info = postulante.getCedula();
+                cedula = String.valueOf(info);
+
+            if (controlPostulante.ValidaPostulante(postulante)) {
+                this.setVisible(false);
+                //Paso al menú principal
+                Vis_Postulante vista = new Vis_Postulante();
+                vista.setVisible(true);
+
+                //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar  
+                //int info = postulante.getCedula();
                 //cedula = String.valueOf(info);
-               
-                
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de inicio de sesión");
             }
-        else{
-            JOptionPane.showMessageDialog(null, "Error de inicio de sesión");
-        }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
     }
-    
+
 }
