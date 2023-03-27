@@ -58,11 +58,11 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Cedula", "Apellido/s", "Nombre/s", "Fecha de postulacion", "Codigo Hoja Vida"
+                "Codigo", "Cedula", "Apellido/s", "Nombre/s", "Fecha de postulacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -138,9 +138,9 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
     Connection cn = mysql.conectar();
 
     private void Visualizar(){
-        Object[] postulantes = new Object[6];
+        Object[] postulantes = new Object[5];
         DefaultTableModel modelo = (DefaultTableModel) table_postulantes.getModel();
-        
+         //cn = mysql.conectar();
             int cod = Integer.parseInt(JF_mostrarOfertas.codigo);
         
         try{
@@ -156,7 +156,6 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
                 postulantes[2] = rs.getString("p.post_apellidos");
                 postulantes[3] = rs.getString("p.post_nombres");
                 postulantes[4] = rs.getDate("pi.pcion_fePostulacion");
-                postulantes[0] = rs.getInt("h.hoj_id");
                 
                 modelo.addRow(postulantes);
             }

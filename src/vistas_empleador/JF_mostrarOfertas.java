@@ -510,7 +510,7 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
     private void Visualizar() {
         Object[] ofertas = new Object[10];
         DefaultTableModel modelo = (DefaultTableModel) Table_ofertas.getModel();
-    
+         cn = mysql.conectar();
         int cedula = Integer.parseInt(P_loginEmpleador.cedula);   
         
         try{
@@ -682,7 +682,7 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
             oferta.setFechaFin(fechaOut);
             oferta.setJornada(jornada);
             oferta.setCedulaEmpleador(Integer.parseInt(lbl_recibeced.getText()));
-            oferta.setSolicitud("0");
+            oferta.setSolicitud("5");
             
             if (controlofertas.modificarOferta(oferta)){
                JOptionPane.showMessageDialog(null, "Oferta actualizada de manera exitosa");
@@ -698,7 +698,7 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
                
                
             }else{
-               JOptionPane.showMessageDialog(null, "Error al crear la oferta");  
+               JOptionPane.showMessageDialog(null, "Error al actualizar la oferta");  
             }
             } 
             }else{

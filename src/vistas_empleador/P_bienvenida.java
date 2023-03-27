@@ -9,7 +9,7 @@ public class P_bienvenida extends javax.swing.JFrame {
     
     public P_bienvenida() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
     
@@ -42,6 +42,7 @@ public class P_bienvenida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocationByPlatform(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_fondo.setBackground(new java.awt.Color(253, 253, 253));
@@ -125,7 +126,6 @@ public class P_bienvenida extends javax.swing.JFrame {
         lbl_inciar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_inciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/candadoo.png"))); // NOI18N
         lbl_inciar.setText("Admin: Iniciar Sesión");
-        lbl_inciar.setBorder(null);
         lbl_inciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_inciarMouseClicked(evt);
