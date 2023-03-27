@@ -11,7 +11,29 @@ public class Ctrl_Empleador_j {
    
     Conexion mysql = new Conexion();
     Connection cn = mysql.conectar();
+    
+    //Para validar que no me deje ingresar el mismo empleador por cedula
+    public boolean BuscarEmpleadorPorCedula (Empleador_j objeto){
+        boolean respuesta = false;
         
+            
+        try{
+           CallableStatement valiced = cn.prepareCall("{CALL NoMismoEmpleador(?)}");
+           valiced.setInt(1, objeto.getEmp_ced());
+           
+           if (valiced.executeUpdate() !=0){
+               respuesta = true;
+           }
+           cn.close();
+        }
+        catch (SQLException e) {
+            System.out.println("Error al consultar a la DB: " + e);
+            
+        }
+        return respuesta;
+    }
+    
+          
     //Para validar empleador
     public boolean ValidaEmpleador(Empleador_j objeto) {
         Boolean respuesta = false;

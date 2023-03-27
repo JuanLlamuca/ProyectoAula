@@ -48,4 +48,37 @@ public class Ctrl_emp_ofertas {
         }
         return respuesta;
     }
+    
+    
+    //Para modificar oferta laboral
+    public boolean modificarOferta(OfertaLaboral_j objeto){
+        Boolean respuesta = false;
+     
+        try{
+        CallableStatement modificar = (CallableStatement) cn.prepareCall("{CALL sp_ofertaLboral(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"); 
+            modificar.setInt(1, 1);
+            modificar.setInt(2, objeto.getId());
+            modificar.setString(3, objeto.getTitulo());
+            modificar.setString(4, objeto.getArea());
+            modificar.setString(5, objeto.getDescripcion());
+            modificar.setString(6, objeto.getUbicacion());
+            modificar.setString(7, objeto.getRequisitos());
+            modificar.setDouble(8, objeto.getSalario());
+            modificar.setDate(9, (Date) objeto.getFechaInicio());
+            modificar.setString(10, objeto.getJornada());
+            modificar.setInt(11, objeto.getCedulaEmpleador());
+            modificar.setString(12, objeto.getSolicitud());
+            modificar.setDate(13, (Date) objeto.getFechaInicio());
+            
+            if (modificar.executeUpdate() != 0) {
+                respuesta = true;
+            }
+            cn.close();
+            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
+        }
+        catch (SQLException e) {
+            System.out.println("Error al consultar a la DB: " + e);
+        }
+        return respuesta;
+    }
 }

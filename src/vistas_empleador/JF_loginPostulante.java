@@ -31,17 +31,13 @@ public class JF_loginPostulante extends javax.swing.JFrame {
         btn_entrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        p_barraOpciones = new javax.swing.JPanel();
-        Panel_salir = new javax.swing.JPanel();
-        lbl_salir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_fondo.setBackground(new java.awt.Color(253, 253, 253));
+        P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_logoIma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -56,22 +52,23 @@ public class JF_loginPostulante extends javax.swing.JFrame {
 
         lbl_imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/imagen ogin.png"))); // NOI18N
-        P_fondo.add(lbl_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 30, 360, 500));
+        P_fondo.add(lbl_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 0, 360, 530));
 
-        lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo principal.png"))); // NOI18N
-        P_fondo.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 190, 110));
+        lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo_miniatura.png"))); // NOI18N
+        P_fondo.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 200, 100));
 
         lbl_iniciodesesion.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         lbl_iniciodesesion.setForeground(new java.awt.Color(0, 0, 0));
         lbl_iniciodesesion.setText("Inicio de sesión");
-        P_fondo.add(lbl_iniciodesesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 250, 50));
+        P_fondo.add(lbl_iniciodesesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 250, 50));
 
         lbl_usuario.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(0, 0, 0));
         lbl_usuario.setText("Usuario:");
-        P_fondo.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        P_fondo.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
-        obten_user.setBackground(new java.awt.Color(255, 255, 255));
+        obten_user.setBackground(new java.awt.Color(225, 227, 229));
         obten_user.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         obten_user.setForeground(new java.awt.Color(0, 0, 0));
         obten_user.setBorder(null);
@@ -80,18 +77,18 @@ public class JF_loginPostulante extends javax.swing.JFrame {
                 obten_userActionPerformed(evt);
             }
         });
-        P_fondo.add(obten_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 390, 30));
+        P_fondo.add(obten_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 390, 30));
 
         lbl_clave.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         lbl_clave.setForeground(new java.awt.Color(0, 0, 0));
         lbl_clave.setText("Clave:");
-        P_fondo.add(lbl_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        P_fondo.add(lbl_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
-        obten_clave.setBackground(new java.awt.Color(255, 255, 255));
+        obten_clave.setBackground(new java.awt.Color(225, 227, 229));
         obten_clave.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         obten_clave.setForeground(new java.awt.Color(0, 0, 0));
         obten_clave.setBorder(null);
-        P_fondo.add(obten_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 390, 30));
+        P_fondo.add(obten_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 390, 30));
 
         btn_entrar.setBackground(new java.awt.Color(27, 107, 184));
         btn_entrar.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
@@ -115,47 +112,9 @@ public class JF_loginPostulante extends javax.swing.JFrame {
                 btn_entrarActionPerformed(evt);
             }
         });
-        P_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 390, 40));
-        P_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 390, 10));
-        P_fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 390, 10));
-
-        p_barraOpciones.setBackground(new java.awt.Color(225, 227, 229));
-        p_barraOpciones.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        p_barraOpciones.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                p_barraOpcionesMouseDragged(evt);
-            }
-        });
-        p_barraOpciones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                p_barraOpcionesMousePressed(evt);
-            }
-        });
-        p_barraOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Panel_salir.setBackground(new java.awt.Color(225, 227, 229));
-        Panel_salir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_salir.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        lbl_salir.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_salir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_salir.setText("X");
-        lbl_salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbl_salirMouseExited(evt);
-            }
-        });
-        Panel_salir.add(lbl_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
-
-        p_barraOpciones.add(Panel_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, -1, -1));
-
-        P_fondo.add(p_barraOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 20));
+        P_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 390, 40));
+        P_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 390, 10));
+        P_fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 390, 10));
 
         getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 530));
 
@@ -188,36 +147,6 @@ public class JF_loginPostulante extends javax.swing.JFrame {
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_entrarActionPerformed
-
-    private void lbl_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_lbl_salirMouseClicked
-
-    private void lbl_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseEntered
-        // TODO add your handling code here:
-        Panel_salir.setBackground(Color.red);
-        lbl_salir.setForeground(Color.WHITE);
-    }//GEN-LAST:event_lbl_salirMouseEntered
-
-    private void lbl_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_salirMouseExited
-        // TODO add your handling code here:
-        Panel_salir.setBackground(new Color(225, 227, 229));
-        lbl_salir.setForeground(Color.BLACK);
-    }//GEN-LAST:event_lbl_salirMouseExited
-
-    private void p_barraOpcionesMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_barraOpcionesMouseDragged
-        // TODO add your handling code here:
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x -xMouse, y -yMouse);
-    }//GEN-LAST:event_p_barraOpcionesMouseDragged
-
-    private void p_barraOpcionesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_barraOpcionesMousePressed
-        // TODO add your handling code here:
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_p_barraOpcionesMousePressed
 
     
     public static void main(String args[]) {
@@ -255,7 +184,6 @@ public class JF_loginPostulante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel P_comentario1;
     private javax.swing.JPanel P_fondo;
-    private javax.swing.JPanel Panel_salir;
     private javax.swing.JButton btn_entrar;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -264,11 +192,9 @@ public class JF_loginPostulante extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_iniciodesesion;
     private javax.swing.JLabel lbl_logo;
     private javax.swing.JLabel lbl_logoIma;
-    private javax.swing.JLabel lbl_salir;
     private javax.swing.JLabel lbl_usuario;
     private javax.swing.JPasswordField obten_clave;
     private javax.swing.JTextField obten_user;
-    private javax.swing.JPanel p_barraOpciones;
     // End of variables declaration//GEN-END:variables
 
     //Espacio para crear los métodos

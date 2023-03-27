@@ -6,6 +6,7 @@ package vistas;
 
 
 
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -376,6 +377,7 @@ public class Administrador extends javax.swing.JFrame {
     //Reporte postulantes
     public void ReportePostulantes() {
         Document documento = new Document(PageSize.A4.rotate());
+       
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/" + "ReportePostulantes" + ".pdf"));

@@ -5,7 +5,6 @@
 package vistas_empleador;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 /**
  *
@@ -20,8 +19,8 @@ public class P_menu extends javax.swing.JFrame {
      */
     public P_menu() {
         initComponents();
-        setLocationRelativeTo(null);
-        this.setSize(new Dimension(1200,700));
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -40,8 +39,8 @@ public class P_menu extends javax.swing.JFrame {
         lbl_maximizar = new javax.swing.JLabel();
         lbl_minimizar = new javax.swing.JLabel();
         P_head = new javax.swing.JPanel();
-        lbl_iconouser = new javax.swing.JLabel();
-        lbl_recibenombre = new javax.swing.JLabel();
+        lbl_bienvenida = new javax.swing.JLabel();
+        lbl_logo = new javax.swing.JLabel();
         Menu = new javax.swing.JPanel();
         P_home = new javax.swing.JPanel();
         lbl_home = new javax.swing.JLabel();
@@ -49,22 +48,19 @@ public class P_menu extends javax.swing.JFrame {
         P_barra2 = new javax.swing.JPanel();
         P_ediInfo = new javax.swing.JPanel();
         lbl_modEmp = new javax.swing.JLabel();
+        P_barrasalir = new javax.swing.JPanel();
         P_crearOferta = new javax.swing.JPanel();
         lbl_textocrearofer1 = new javax.swing.JLabel();
         lbl_crearOferta = new javax.swing.JLabel();
         P_cerrarsesion = new javax.swing.JPanel();
         lbl_cerrarsesion = new javax.swing.JLabel();
-        P_editarOferta = new javax.swing.JPanel();
-        lbl_textoeditarofer = new javax.swing.JLabel();
-        lbl_editarOferta = new javax.swing.JLabel();
-        P_mostrarOfer = new javax.swing.JPanel();
-        lbl_textmostrarofer = new javax.swing.JLabel();
-        lbl_mostrarOfertas = new javax.swing.JLabel();
+        lbl_iconouser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,6 +76,7 @@ public class P_menu extends javax.swing.JFrame {
                 P_barracontrolMousePressed(evt);
             }
         });
+        P_barracontrol.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P_salir.setBackground(new java.awt.Color(253, 253, 253));
         P_salir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,6 +99,8 @@ public class P_menu extends javax.swing.JFrame {
         });
         P_salir.add(lbl_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 20));
 
+        P_barracontrol.add(P_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 0, -1, -1));
+
         lbl_maximizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Maximizar.png"))); // NOI18N
         lbl_maximizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_maximizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,6 +108,7 @@ public class P_menu extends javax.swing.JFrame {
                 lbl_maximizarMouseClicked(evt);
             }
         });
+        P_barracontrol.add(lbl_maximizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 0, 30, 20));
 
         lbl_minimizar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         lbl_minimizar.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,49 +126,29 @@ public class P_menu extends javax.swing.JFrame {
                 lbl_minimizarMouseExited(evt);
             }
         });
+        P_barracontrol.add(lbl_minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 30, 20));
 
-        javax.swing.GroupLayout P_barracontrolLayout = new javax.swing.GroupLayout(P_barracontrol);
-        P_barracontrol.setLayout(P_barracontrolLayout);
-        P_barracontrolLayout.setHorizontalGroup(
-            P_barracontrolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(P_barracontrolLayout.createSequentialGroup()
-                .addGap(1110, 1110, 1110)
-                .addComponent(lbl_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(lbl_maximizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(P_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        P_barracontrolLayout.setVerticalGroup(
-            P_barracontrolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbl_minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(lbl_maximizar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(P_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        P_fondo.add(P_barracontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 20));
 
-        P_fondo.add(P_barracontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 20));
-
-        P_head.setBackground(new java.awt.Color(1, 0, 53));
+        P_head.setBackground(new java.awt.Color(1, 53, 103));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_iconouser.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
-        lbl_iconouser.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_iconouser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_iconouser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono_usuario-removebg-preview.png"))); // NOI18N
-        lbl_iconouser.setText("Bienvenido");
-        P_head.add(lbl_iconouser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 70));
+        lbl_bienvenida.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
+        lbl_bienvenida.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_bienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_bienvenida.setText("Bienvenido al Sistema de Bolsa de Empleos");
+        P_head.add(lbl_bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1360, 50));
 
-        lbl_recibenombre.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
-        lbl_recibenombre.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_recibenombre.setText("jLabel1");
-        P_head.add(lbl_recibenombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 300, 70));
+        lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo_miniatura_negativo.png"))); // NOI18N
+        P_head.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 190, 100));
 
-        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1200, 70));
+        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1370, 100));
 
-        Menu.setBackground(new java.awt.Color(1, 0, 53));
+        Menu.setBackground(new java.awt.Color(1, 53, 103));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_home.setBackground(new java.awt.Color(1, 0, 52));
+        P_home.setBackground(new java.awt.Color(1, 53, 103));
         P_home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_home.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
@@ -192,14 +172,14 @@ public class P_menu extends javax.swing.JFrame {
         P_barra.setBackground(new java.awt.Color(225, 227, 229));
         P_barra.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 51), null));
         P_barra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Menu.add(P_barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 220, 10));
+        Menu.add(P_barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 210, 10));
 
         P_barra2.setBackground(new java.awt.Color(225, 227, 229));
         P_barra2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 51), null));
         P_barra2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Menu.add(P_barra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 210, 10));
 
-        P_ediInfo.setBackground(new java.awt.Color(0, 0, 52));
+        P_ediInfo.setBackground(new java.awt.Color(1, 53, 103));
         P_ediInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_modEmp.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
@@ -221,7 +201,11 @@ public class P_menu extends javax.swing.JFrame {
 
         Menu.add(P_ediInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 60));
 
-        P_fondo.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 210, 550));
+        P_barrasalir.setBackground(new java.awt.Color(225, 227, 229));
+        P_barrasalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        Menu.add(P_barrasalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 210, 10));
+
+        P_fondo.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 210, 590));
 
         P_crearOferta.setBackground(new java.awt.Color(204, 204, 204));
         P_crearOferta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -229,8 +213,8 @@ public class P_menu extends javax.swing.JFrame {
         lbl_textocrearofer1.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
         lbl_textocrearofer1.setForeground(new java.awt.Color(0, 0, 0));
         lbl_textocrearofer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_textocrearofer1.setText("Crear Oferta Laboral");
-        P_crearOferta.add(lbl_textocrearofer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 210, 60));
+        lbl_textocrearofer1.setText("Opciones de Oferta Laboral");
+        P_crearOferta.add(lbl_textocrearofer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 240, 60));
 
         lbl_crearOferta.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
         lbl_crearOferta.setForeground(new java.awt.Color(0, 0, 0));
@@ -251,11 +235,11 @@ public class P_menu extends javax.swing.JFrame {
                 lbl_crearOfertaMouseExited(evt);
             }
         });
-        P_crearOferta.add(lbl_crearOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 210));
+        P_crearOferta.add(lbl_crearOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 210));
 
-        P_fondo.add(P_crearOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 210, 210));
+        P_fondo.add(P_crearOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 240, 210));
 
-        P_cerrarsesion.setBackground(new java.awt.Color(1, 0, 48));
+        P_cerrarsesion.setBackground(new java.awt.Color(1, 53, 103));
         P_cerrarsesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_cerrarsesion.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
@@ -276,74 +260,16 @@ public class P_menu extends javax.swing.JFrame {
         });
         P_cerrarsesion.add(lbl_cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 60));
 
-        P_fondo.add(P_cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 210, 60));
+        P_fondo.add(P_cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 710, 210, 60));
 
-        P_editarOferta.setBackground(new java.awt.Color(204, 204, 204));
-        P_editarOferta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lbl_iconouser.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
+        lbl_iconouser.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_iconouser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_iconouser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono_usuario-removebg-preview.png"))); // NOI18N
+        lbl_iconouser.setText("Bienvenido");
+        P_fondo.add(lbl_iconouser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 220, 60));
 
-        lbl_textoeditarofer.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
-        lbl_textoeditarofer.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_textoeditarofer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_textoeditarofer.setText("Editar Oferta Laboral");
-        P_editarOferta.add(lbl_textoeditarofer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 210, 40));
-
-        lbl_editarOferta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_editarOferta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/editar_oferta-removebg-preview.png"))); // NOI18N
-        lbl_editarOferta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        lbl_editarOferta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbl_editarOferta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_editarOfertaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbl_editarOfertaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbl_editarOfertaMouseExited(evt);
-            }
-        });
-        P_editarOferta.add(lbl_editarOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 210));
-
-        P_fondo.add(P_editarOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 210, 210));
-
-        P_mostrarOfer.setBackground(new java.awt.Color(204, 204, 204));
-        P_mostrarOfer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_textmostrarofer.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
-        lbl_textmostrarofer.setForeground(new java.awt.Color(0, 0, 0));
-        lbl_textmostrarofer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_textmostrarofer.setText("Mostrar Ofertas");
-        lbl_textmostrarofer.setToolTipText("");
-        P_mostrarOfer.add(lbl_textmostrarofer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 210, 40));
-
-        lbl_mostrarOfertas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_mostrarOfertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/reportes.png"))); // NOI18N
-        lbl_mostrarOfertas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbl_mostrarOfertas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_mostrarOfertasMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbl_mostrarOfertasMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbl_mostrarOfertasMouseExited(evt);
-            }
-        });
-        P_mostrarOfer.add(lbl_mostrarOfertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 210));
-
-        P_fondo.add(P_mostrarOfer, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 210, 210));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(P_fondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(P_fondo, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
-        );
+        getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -398,76 +324,41 @@ public class P_menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lbl_crearOfertaMouseEntered
 
-    private void lbl_editarOfertaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_editarOfertaMouseEntered
-        // TODO add your handling code here:
-        P_editarOferta.setBackground(new Color(27, 107, 184));
-        lbl_textoeditarofer.setForeground(Color.WHITE);
-    }//GEN-LAST:event_lbl_editarOfertaMouseEntered
-
     private void lbl_crearOfertaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_crearOfertaMouseExited
         // TODO add your handling code here:
         P_crearOferta.setBackground(new Color(204, 204, 204));
         lbl_textocrearofer1.setForeground(Color.BLACK);
     }//GEN-LAST:event_lbl_crearOfertaMouseExited
 
-    private void lbl_editarOfertaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_editarOfertaMouseExited
-        // TODO add your handling code here:
-        P_editarOferta.setBackground(new Color(204, 204, 204));
-        lbl_textoeditarofer.setForeground(Color.BLACK);
-    }//GEN-LAST:event_lbl_editarOfertaMouseExited
-
     private void lbl_cerrarsesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cerrarsesionMouseEntered
         // TODO add your handling code here:
-        P_cerrarsesion.setBackground(new Color(27, 107, 184));
+        P_cerrarsesion.setBackground(new Color(225, 227, 229));
+        lbl_cerrarsesion.setForeground(Color.BLACK);
     }//GEN-LAST:event_lbl_cerrarsesionMouseEntered
 
     private void lbl_cerrarsesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cerrarsesionMouseExited
         // TODO add your handling code here:
-        P_cerrarsesion.setBackground(new Color(1, 0, 53));
+        P_cerrarsesion.setBackground(new Color(1,53, 103));
+        lbl_cerrarsesion.setForeground(Color.WHITE);
     }//GEN-LAST:event_lbl_cerrarsesionMouseExited
 
     private void lbl_cerrarsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cerrarsesionMouseClicked
         // TODO add your handling code here:
         P_cerrarsesion.setBackground(new Color(202, 159, 78));
         lbl_cerrarsesion.setForeground(Color.BLACK);
+        this.setVisible(false);
+        P_bienvenida bienvenida = new P_bienvenida();
+        bienvenida.setVisible(true);
     }//GEN-LAST:event_lbl_cerrarsesionMouseClicked
 
     private void lbl_crearOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_crearOfertaMouseClicked
         // TODO add your handling code here:
         lbl_textocrearofer1.setForeground(Color.BLACK);
         P_crearOferta.setBackground(new Color(202, 159, 78));
-        
-        //Código
-       JF_crearOferta ofer = new JF_crearOferta();
-       ofer.setVisible(true);
-        
+        //llamo al panel 
+        JF_mostrarOfertas ofer = new JF_mostrarOfertas();
+        ofer.setVisible(true);
     }//GEN-LAST:event_lbl_crearOfertaMouseClicked
-
-    private void lbl_editarOfertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_editarOfertaMouseClicked
-        // TODO add your handling code here:
-        lbl_textoeditarofer.setForeground(Color.BLACK);
-        P_editarOferta.setBackground(new Color(202, 159, 78));
-    }//GEN-LAST:event_lbl_editarOfertaMouseClicked
-
-    private void lbl_mostrarOfertasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_mostrarOfertasMouseClicked
-        // TODO add your handling code here:
-        lbl_textmostrarofer.setForeground(Color.BLACK);
-        P_mostrarOfer.setBackground(new Color(202, 159, 78));
-        JF_mostrarOfertas mostrar = new JF_mostrarOfertas();
-        mostrar.setVisible(true);
-    }//GEN-LAST:event_lbl_mostrarOfertasMouseClicked
-
-    private void lbl_mostrarOfertasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_mostrarOfertasMouseEntered
-        // TODO add your handling code here:
-        P_mostrarOfer.setBackground(new Color(27, 107, 184));
-        lbl_textmostrarofer.setForeground(Color.WHITE);
-    }//GEN-LAST:event_lbl_mostrarOfertasMouseEntered
-
-    private void lbl_mostrarOfertasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_mostrarOfertasMouseExited
-        // TODO add your handling code here:
-        P_mostrarOfer.setBackground(new Color(204, 204, 204));
-        lbl_textmostrarofer.setForeground(Color.BLACK);
-    }//GEN-LAST:event_lbl_mostrarOfertasMouseExited
 
     private void lbl_maximizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_maximizarMouseClicked
         // TODO add your handling code here:
@@ -486,7 +377,7 @@ public class P_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_homeMouseEntered
 
     private void lbl_homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_homeMouseExited
-        P_home.setBackground(new Color(1, 0, 52));
+        P_home.setBackground(new Color(1, 53, 103));
         lbl_home.setForeground(Color.WHITE);
     }//GEN-LAST:event_lbl_homeMouseExited
 
@@ -501,7 +392,7 @@ public class P_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_modEmpMouseEntered
 
     private void lbl_modEmpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_modEmpMouseExited
-        P_ediInfo.setBackground(new Color(1, 0, 52));
+        P_ediInfo.setBackground(new Color(1, 53, 103));
         lbl_modEmp.setForeground(Color.WHITE);
     }//GEN-LAST:event_lbl_modEmpMouseExited
 
@@ -545,28 +436,24 @@ public class P_menu extends javax.swing.JFrame {
     private javax.swing.JPanel P_barra;
     private javax.swing.JPanel P_barra2;
     private javax.swing.JPanel P_barracontrol;
+    private javax.swing.JPanel P_barrasalir;
     private javax.swing.JPanel P_cerrarsesion;
     private javax.swing.JPanel P_crearOferta;
     private javax.swing.JPanel P_ediInfo;
-    private javax.swing.JPanel P_editarOferta;
     private javax.swing.JPanel P_fondo;
     private javax.swing.JPanel P_head;
     private javax.swing.JPanel P_home;
-    private javax.swing.JPanel P_mostrarOfer;
     private javax.swing.JPanel P_salir;
+    private javax.swing.JLabel lbl_bienvenida;
     private javax.swing.JLabel lbl_cerrarsesion;
     private javax.swing.JLabel lbl_crearOferta;
-    private javax.swing.JLabel lbl_editarOferta;
     private javax.swing.JLabel lbl_home;
     private javax.swing.JLabel lbl_iconouser;
+    private javax.swing.JLabel lbl_logo;
     private javax.swing.JLabel lbl_maximizar;
     private javax.swing.JLabel lbl_minimizar;
     private javax.swing.JLabel lbl_modEmp;
-    private javax.swing.JLabel lbl_mostrarOfertas;
-    private javax.swing.JLabel lbl_recibenombre;
     private javax.swing.JLabel lbl_salir;
-    private javax.swing.JLabel lbl_textmostrarofer;
     private javax.swing.JLabel lbl_textocrearofer1;
-    private javax.swing.JLabel lbl_textoeditarofer;
     // End of variables declaration//GEN-END:variables
 }

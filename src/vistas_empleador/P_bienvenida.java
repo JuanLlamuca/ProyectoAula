@@ -9,7 +9,7 @@ public class P_bienvenida extends javax.swing.JFrame {
     
     public P_bienvenida() {
         initComponents();
-        //this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
     
@@ -23,6 +23,7 @@ public class P_bienvenida extends javax.swing.JFrame {
         comentarioUno = new javax.swing.JLabel();
         comentarioDos = new javax.swing.JLabel();
         iniciar = new javax.swing.JLabel();
+        lbl_log = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
         P_Head = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
@@ -41,7 +42,6 @@ public class P_bienvenida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocationByPlatform(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_fondo.setBackground(new java.awt.Color(253, 253, 253));
@@ -61,19 +61,19 @@ public class P_bienvenida extends javax.swing.JFrame {
         Comentario.setForeground(new java.awt.Color(255, 255, 255));
         Comentario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Comentario.setText("Explora Ofertas Laborales");
-        Panel_fondo.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 580, 70));
+        Panel_fondo.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 580, 70));
 
         comentarioUno.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         comentarioUno.setForeground(new java.awt.Color(255, 255, 255));
         comentarioUno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         comentarioUno.setText("Conecta directamente con empleadores que requieren profesionales por medio de ");
-        Panel_fondo.add(comentarioUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 840, 30));
+        Panel_fondo.add(comentarioUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 840, 30));
 
         comentarioDos.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         comentarioDos.setForeground(new java.awt.Color(255, 255, 255));
         comentarioDos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         comentarioDos.setText("la Bolsa de Empleo del Instituto Superior Tecnológico 17 de Julio.");
-        Panel_fondo.add(comentarioDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 700, -1));
+        Panel_fondo.add(comentarioDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 700, -1));
 
         iniciar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         iniciar.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,7 +92,11 @@ public class P_bienvenida extends javax.swing.JFrame {
                 iniciarMouseExited(evt);
             }
         });
-        Panel_fondo.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 90, 40));
+        Panel_fondo.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 90, 40));
+
+        lbl_log.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_log.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo_grande.png"))); // NOI18N
+        Panel_fondo.add(lbl_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 270, 340, 240));
 
         fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Bienvenidaa.png"))); // NOI18N
@@ -120,8 +124,8 @@ public class P_bienvenida extends javax.swing.JFrame {
         lbl_inciar.setForeground(new java.awt.Color(0, 0, 0));
         lbl_inciar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_inciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/candadoo.png"))); // NOI18N
-        lbl_inciar.setText("Admin: Iniciar Sesion");
-        lbl_inciar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbl_inciar.setText("Admin: Iniciar Sesión");
+        lbl_inciar.setBorder(null);
         lbl_inciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_inciarMouseClicked(evt);
@@ -392,6 +396,7 @@ public class P_bienvenida extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel iniciar;
     private javax.swing.JLabel lbl_inciar;
+    private javax.swing.JLabel lbl_log;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

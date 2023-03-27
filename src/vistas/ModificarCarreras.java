@@ -156,7 +156,6 @@ public class ModificarCarreras extends javax.swing.JFrame {
             txt_idCarrera.setText("" + idCarrera);
             txt_nombre.setText(nombre);
             txtArea_descripcion.setText(descripcion);
-                    
         }
     }//GEN-LAST:event_tabla_carrerasMouseClicked
 
