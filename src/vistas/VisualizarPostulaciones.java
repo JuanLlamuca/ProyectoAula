@@ -89,8 +89,11 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
 
         try {
               cn = mysql.conectar();
-            CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?)}");
-            insertar.setInt(1,Integer.parseInt(cedula));
+            CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?,?)}");
+            
+         
+            insertar.setInt(1,0);
+            insertar.setInt(2,Integer.parseInt(cedula));
             ResultSet rs = insertar.executeQuery();
 
             DefaultTableModel modelo = new DefaultTableModel();

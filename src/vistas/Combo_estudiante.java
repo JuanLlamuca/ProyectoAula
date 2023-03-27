@@ -483,7 +483,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
     }
 
     public void llenarTabla() {
-        String sql = "select * from postulante";
+        String sql = "select * from lista_postulante";
         try {
             cn = mysql.conectar();
             st = cn.createStatement();

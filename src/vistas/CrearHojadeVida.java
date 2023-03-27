@@ -4,18 +4,47 @@
  */
 package vistas;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Header;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.mysql.jdbc.Blob;
+import com.mysql.jdbc.PreparedStatement;
 import conexion.Conexion;
 import controlador.Crtl_Hoja_vida;
-import java.awt.Image;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 import java.io.InputStream;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.HojaVida;
+import static vistas_empleador.JF_loginPostulante.cedula;
+
+import java.awt.Image;
 
 /**
  *
@@ -25,6 +54,8 @@ public class CrearHojadeVida extends javax.swing.JPanel {
 
     Conexion mysql = new Conexion();
     Connection cn = mysql.conectar();
+    Statement st;
+    ResultSet rs;
 
     public FileInputStream fis;
     public int Bytes;
@@ -33,6 +64,8 @@ public class CrearHojadeVida extends javax.swing.JPanel {
 
     public CrearHojadeVida() {
         initComponents();
+        traerImagen();
+        llenarDatos();
     }
 
     /**
@@ -93,6 +126,8 @@ public class CrearHojadeVida extends javax.swing.JPanel {
         setBackground(new java.awt.Color(225, 227, 229));
         setPreferredSize(new java.awt.Dimension(1260, 810));
 
+        jLabel1.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("FOTO");
 
         lbl_foto.setBackground(new java.awt.Color(153, 255, 255));
@@ -106,20 +141,32 @@ public class CrearHojadeVida extends javax.swing.JPanel {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Cédula");
 
+        jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre completo");
 
+        jLabel3.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Género");
 
         combo_genero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Femenino", "Masculino" }));
 
+        jLabel4.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Estado civil");
 
         combo_estadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Soltero/a", "Casado/a", "Union libre", "Divorsiado/a", "Viudo/a" }));
 
+        jLabel5.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Cantón resindencia");
 
+        jLabel6.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Ciudad residencia");
 
         txt_ciudad.addActionListener(new java.awt.event.ActionListener() {
@@ -128,42 +175,67 @@ public class CrearHojadeVida extends javax.swing.JPanel {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Dirección");
 
+        jLabel12.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Formación academica");
 
+        jLabel13.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Experiencia");
 
         jScrollPane1.setViewportView(txt_experiencia);
 
+        jLabel8.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Telefóno personal");
 
+        jLabel9.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Corréo");
 
+        jLabel10.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Descripción Profesional");
 
         jScrollPane2.setViewportView(txt_descripcionProfesional);
 
+        jLabel18.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Habilidades");
 
         jScrollPane3.setViewportView(txt_habilidades);
 
+        jLabel19.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Adicional");
 
         jScrollPane4.setViewportView(txt_adicional);
 
+        jLabel14.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Nombre apellido primera persona referencia");
 
+        jLabel15.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("teléfono");
 
+        jLabel16.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nombre apellidosegunda persona referencia");
 
+        jLabel17.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Telefóno");
 
         btn_imprimir.setBackground(new java.awt.Color(27, 107, 184));
         btn_imprimir.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_imprimir.setForeground(new java.awt.Color(255, 255, 255));
-        btn_imprimir.setText("Imprimir");
+        btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
+        btn_imprimir.setText(" Pdf");
         btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_imprimirActionPerformed(evt);
@@ -173,6 +245,7 @@ public class CrearHojadeVida extends javax.swing.JPanel {
         btn_guardar1.setBackground(new java.awt.Color(27, 107, 184));
         btn_guardar1.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_guardar1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_guardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-guardar-50.png"))); // NOI18N
         btn_guardar1.setText("Guadar");
         btn_guardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,26 +317,31 @@ public class CrearHojadeVida extends javax.swing.JPanel {
                                             .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(15, 15, 15)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addComponent(jLabel7)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel12)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txt_formacionAcademica, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(3, 3, 3)
-                                                    .addComponent(jLabel13)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(3, 3, 3)
+                                            .addComponent(jLabel13)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel19)
-                                                .addComponent(jLabel18))))))
+                                            .addComponent(jLabel19))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_formacionAcademica, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel18))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(105, 105, 105)
+                                            .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(31, 31, 31)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,12 +369,6 @@ public class CrearHojadeVida extends javax.swing.JPanel {
                         .addGap(26, 26, 26)
                         .addComponent(txt_telefonoReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175)
-                .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(297, 297, 297))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,38 +423,40 @@ public class CrearHojadeVida extends javax.swing.JPanel {
                         .addGap(29, 29, 29)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(txt_formacionAcademica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txt_formacionAcademica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(txt_nombreReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(txt_telefonoReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(txt_nombreReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(txt_nombreReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(txt_telefonoReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(txt_nombreReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel19)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txt_telefonoReferencia2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -408,22 +482,23 @@ public class CrearHojadeVida extends javax.swing.JPanel {
 
     private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
         // TODO add your handling code here:
-       
+        generarPdf();
+
     }//GEN-LAST:event_btn_imprimirActionPerformed
 
     private void btn_guardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar1ActionPerformed
         // TODO add your handling code here:
-         HojaVida hoja = new HojaVida();
+        HojaVida hoja = new HojaVida();
         Crtl_Hoja_vida controlHoja = new Crtl_Hoja_vida();
 
         //Cargar imagen
         //Insertar datos en la hoja de vida
         if (!txt_cedula.getText().isEmpty() && !txt_nombre.getText().isEmpty()
-            && !txt_canton.getText().isEmpty() && !txt_ciudad.getText().isEmpty()
-            && !txt_direccion.getText().isEmpty() && !txt_correo.getText().isEmpty() && !txt_descripcionProfesional.getText().isEmpty()
-            && !txt_formacionAcademica.getText().isEmpty() && !txt_telefonoPersonal.getText().isEmpty() && !txt_telefonoReferencia1.getText().isEmpty()
-            && !txt_telefonoReferencia2.getText().isEmpty() && !txt_nombreReferencia1.getText().isEmpty() && !txt_nombreReferencia2.getText().isEmpty()
-            && !txt_habilidades.getText().isEmpty() && !txt_adicional.getText().isEmpty()) {
+                && !txt_canton.getText().isEmpty() && !txt_ciudad.getText().isEmpty()
+                && !txt_direccion.getText().isEmpty() && !txt_correo.getText().isEmpty() && !txt_descripcionProfesional.getText().isEmpty()
+                && !txt_formacionAcademica.getText().isEmpty() && !txt_telefonoPersonal.getText().isEmpty() && !txt_telefonoReferencia1.getText().isEmpty()
+                && !txt_telefonoReferencia2.getText().isEmpty() && !txt_nombreReferencia1.getText().isEmpty() && !txt_nombreReferencia2.getText().isEmpty()
+                && !txt_habilidades.getText().isEmpty() && !txt_adicional.getText().isEmpty()) {
 
             hoja.setCedula(Integer.parseInt(txt_cedula.getText()));  //1
             hoja.setNombre(txt_nombre.getText());    //2
@@ -502,8 +577,7 @@ public class CrearHojadeVida extends javax.swing.JPanel {
     private javax.swing.JTextField txt_telefonoReferencia2;
     // End of variables declaration//GEN-END:variables
 
-   
-     public byte[] getImagen(String ruta) {
+    public byte[] getImagen(String ruta) {
         File imagen = new File(ruta);
         try {
             byte[] icono = new byte[(int) imagen.length()];
@@ -515,5 +589,241 @@ public class CrearHojadeVida extends javax.swing.JPanel {
             return null;
         }
     }
+
+    public void traerImagen() {
+        cn = mysql.conectar();
+
+        try {
+            CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?,?)}");
+            insertar.setInt(1, 2);
+            insertar.setInt(2, Integer.parseInt(cedula));
+            rs = insertar.executeQuery();
+
+            if (rs.next()) {
+                java.sql.Blob blob = rs.getBlob(1);
+
+                byte[] data = blob.getBytes(1, (int) blob.length());
+
+                BufferedImage img = null;
+
+                try {
+                    img = ImageIO.read(new ByteArrayInputStream(data));
+                } catch (Exception e) {
+                    System.out.println("error " + e);
+                }
+
+                ImageIcon icono = new ImageIcon(img);
+                int ancho = lbl_foto.getWidth() > 0 ? lbl_foto.getWidth() : 100;
+                int alto = lbl_foto.getHeight() > 0 ? lbl_foto.getHeight() : 100;
+                Icon imagen = new ImageIcon(icono.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+                lbl_foto.setIcon(imagen);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error traer imagen " + e);
+        }
+
+    }
+
+    public void llenarDatos() {
+
+        try {
+
+            CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?,?)}");
+
+            String ruta = System.getProperty("user.home");
+
+            insertar.setInt(1, 1);
+            insertar.setInt(2, Integer.parseInt(cedula));
+            rs = insertar.executeQuery();
+
+            while (rs.next()) {
+                int cedulas = rs.getInt("post_cedula");  //1
+                String nombreCompleto = rs.getString("hoj_NombreCompleto"); //2
+                String genero = rs.getString("hoj_genero"); //3
+                String estadoCivil = rs.getString("hoj_estadoCivil"); //4
+                String canton = rs.getString("hoj_cantonResidencia"); //5
+                String ciudad = rs.getString("hoj_cuidadResidencia");  //6
+                String direccion = rs.getString("hoj_direccion"); //7
+                int telPersonal = rs.getInt("hoj_telefonoPersonal"); //8
+                String correo = rs.getString("hoj_direccion"); //9
+                String descripcionPro = rs.getString("hoj_descripcionProfesional"); //10
+                String formacion = rs.getString("hoj_formacionAcademica"); //11
+                String Experiencia = rs.getString("hoj_Experiencia"); //12
+                int telReferencia1 = rs.getInt("hoj_telRefencia1"); //13
+                int telReferencia2 = rs.getInt("hoj_telReferencia2"); //14
+                String NomReferencia1 = rs.getString("hoj_NombreReferencia1"); //15
+                String NomReferencia2 = rs.getString("hoj_NombreReferencia2"); //16
+                String habilidades = rs.getString("hoj_habilidades"); //17
+                String adicional = rs.getString("hoj_adicional"); //18
+
+                txt_cedula.setText(Integer.toString(cedulas));
+                txt_nombre.setText(nombreCompleto);
+                txt_telefonoPersonal.setText(Integer.toString(telPersonal));
+                txt_canton.setText(canton);
+                txt_ciudad.setText(ciudad);
+                txt_direccion.setText(direccion);
+                txt_correo.setText(correo);
+                txt_descripcionProfesional.setText(descripcionPro);
+                txt_formacionAcademica.setText(formacion);
+                txt_experiencia.setText(Experiencia);
+                txt_telefonoReferencia1.setText(Integer.toString(telReferencia1));
+                txt_telefonoReferencia2.setText(Integer.toString(telReferencia2));
+                txt_nombreReferencia1.setText(NomReferencia1);
+                txt_nombreReferencia2.setText(NomReferencia2);
+                txt_habilidades.setText(habilidades);
+                txt_adicional.setText(adicional);
+
+            }
+
+            insertar.close();
+            cn.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+    }
+
+    public void generarPdf() {
+        cn = mysql.conectar();
+
+        Document documento = new Document(PageSize.A4);
+
+        
+        
+        try {
+            String ruta = System.getProperty("user.home");
+            PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/HojaVida.pdf"));
+            documento.open();
+
+            Paragraph titulo2 = new Paragraph();
+            titulo2.setAlignment(Paragraph.ALIGN_CENTER);
+            titulo2.add("\n\n\n");
+           
+            // Obtener la imagen del método traerImagen()
+
+            titulo2.setSpacingAfter(10f);
+            documento.add(titulo2);
+
+            try {
+                CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?,?)}");
+                insertar.setInt(1, 2);
+                insertar.setInt(2, Integer.parseInt(cedula));
+                rs = insertar.executeQuery();
+
+                if (rs.next()) {
+                    java.sql.Blob blob = rs.getBlob(1);
+
+                    byte[] data = blob.getBytes(1, (int) blob.length());
+
+                
+                    com.itextpdf.text.Image imagen = com.itextpdf.text.Image.getInstance(data);
+
+                
+                    float width = 150f;
+                    float height = 200f;
+                    imagen.scaleToFit(width, height );
+                  
+                    float centerX = PageSize.A4.getWidth() / 2;
+
+              
+                    float centerY = PageSize.A4.getHeight() - imagen.getScaledHeight();
+ 
+                 
+                
+                    imagen.setAbsolutePosition(centerX - (width / 2), centerY);
+                    Paragraph ima = new Paragraph();
+                    ima.setAlignment(Paragraph.ALIGN_CENTER);
+                    ima.add(imagen);
+                    ima.setSpacingAfter(10f);
+                    ima.add(imagen);
+                    documento.add(ima);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error traer imagen " + e);
+            }
+            
+            
+            
+            Paragraph titulo3 = new Paragraph();
+            titulo3.setAlignment(Paragraph.ALIGN_CENTER);
+          
+            titulo3.setFont(FontFactory.getFont("Calisto MT", 30, Font.NORMAL, BaseColor.BLUE));
+            titulo3.add("\n\n\n\n\n\n\nHOJA DE VIDA\n");
+            // Obtener la imagen del método traerImagen()
+
+            titulo3.setSpacingAfter(10f);
+            documento.add(titulo3);
+
+            Paragraph titulo = new Paragraph();
+            titulo.setAlignment(Paragraph.ALIGN_CENTER);
+            titulo.setFont(FontFactory.getFont("Calisto MT", 14, Font.NORMAL, BaseColor.BLUE));
+            titulo.add("---------------------------------------------------------------------------------------------------------------");
+ 
+
+            titulo.setSpacingAfter(10f);
+            documento.add(titulo);
+
+            try {
+                CallableStatement insertar = cn.prepareCall("{CALL sp_visualizarPostulaciones(?,?)}");
+                insertar.setInt(1, 3);
+                insertar.setInt(2, Integer.parseInt(cedula));
+                rs = insertar.executeQuery();
+
+                while (rs.next()) {
+                    int cedulas = rs.getInt("post_cedula");
+                    String nombreCompleto = rs.getString("hoj_NombreCompleto");
+                    String genero = rs.getString("hoj_genero");
+                    String estadoCivil = rs.getString("hoj_estadoCivil");
+                    String canton = rs.getString("hoj_cantonResidencia");
+                    String ciudad = rs.getString("hoj_cuidadResidencia");
+                    String direccion = rs.getString("hoj_direccion");
+                    int telPersonal = rs.getInt("hoj_telefonoPersonal");
+                    String correo = rs.getString("hoj_correo");
+                    String descripcionPro = rs.getString("hoj_descripcionProfesional");
+                    String formacion = rs.getString("hoj_formacionAcademica");
+                    String experiencia = rs.getString("hoj_Experiencia");
+                    int telReferencia1 = rs.getInt("hoj_telRefencia1");
+                    int telReferencia2 = rs.getInt("hoj_telReferencia2");
+                    String nomReferencia1 = rs.getString("hoj_NombreReferencia1");
+                    String nomReferencia2 = rs.getString("hoj_NombreReferencia2");
+                    String habilidades = rs.getString("hoj_habilidades");
+                    String adicional = rs.getString("hoj_adicional");
+
+                    Paragraph parrafo = new Paragraph();
+                    parrafo.setFont(FontFactory.getFont("Calisto MT", 14, Font.NORMAL, BaseColor.BLACK));
+                    parrafo.add("\nCédula:\n" + cedulas + "\n");
+                    parrafo.add("\nNombre completo: \n" + nombreCompleto + "\n");
+                    parrafo.add("\nGénero: \n" + genero + "\n");
+                    parrafo.add("\nEstado civil: \n" + estadoCivil + "\n");
+                    parrafo.add("\nCantón de residencia \n" + canton + "\n");
+                    parrafo.add("\nCiudad de residencia \n" + ciudad + "\n");
+                    parrafo.add("\nDirección \n" + direccion + "\n");
+                    parrafo.add("\nTeléfono personal \n" + telPersonal + "\n");
+                    parrafo.add("\nCorreo electrónico \n" + correo + "\n");
+                    parrafo.add("\nDescripción profesional \n" + descripcionPro + "\n");
+                    parrafo.add("\nFormación académica \n" + formacion + "\n");
+                    parrafo.add("\nExperiencia \n" + experiencia + "\n");
+                    parrafo.add("\nNombre referencia 1 \n" + nomReferencia1 + "\n");
+                    parrafo.add("\nTeléfono referencia 1 \n" + telReferencia1 + "\n");
+                    parrafo.add("\nNombre referencia 2 \n" + nomReferencia2 + "\n");
+                    parrafo.add("\nTeléfono referencia 2 \n" + telReferencia2 + "\n");
+                    parrafo.add("\nHabilidades \n" + habilidades + "\n");
+                    parrafo.add("\nAdicional \n" + adicional);
+
+                    documento.add(parrafo);
+
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cargar hoja de vida: " + e);
+            }
+            JOptionPane.showMessageDialog(null, "Hoja de vida creada correctamente");
+            documento.close();
+        } catch (FileNotFoundException | DocumentException e) {
+            System.out.println("Error al generar PDF: " + e);
+        }
+    }
+
    
- }
+}

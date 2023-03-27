@@ -78,10 +78,10 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(1, 53, 103));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_crearHoja.setBackground(new java.awt.Color(1, 53, 103));
+        btn_crearHoja.setBackground(new java.awt.Color(225, 229, 227));
         btn_crearHoja.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
-        btn_crearHoja.setForeground(new java.awt.Color(255, 255, 255));
-        btn_crearHoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono editar.png"))); // NOI18N
+        btn_crearHoja.setForeground(new java.awt.Color(0, 0, 0));
+        btn_crearHoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/crearhojavida.png"))); // NOI18N
         btn_crearHoja.setText("Crear hoja de vida");
         btn_crearHoja.setBorder(null);
         btn_crearHoja.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -91,11 +91,12 @@ public class Vis_Postulante extends javax.swing.JFrame {
                 btn_crearHojaActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_crearHoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 210, 240, 55));
+        jPanel2.add(btn_crearHoja, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 250, 55));
 
-        btn_postular.setBackground(new java.awt.Color(1, 53, 103));
+        btn_postular.setBackground(new java.awt.Color(225, 227, 229));
         btn_postular.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
-        btn_postular.setForeground(new java.awt.Color(255, 255, 255));
+        btn_postular.setForeground(new java.awt.Color(0, 0, 0));
+        btn_postular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/postularempleos.png"))); // NOI18N
         btn_postular.setText("Postular empleos.");
         btn_postular.setBorder(null);
         btn_postular.setMinimumSize(new java.awt.Dimension(12, 23));
@@ -104,16 +105,17 @@ public class Vis_Postulante extends javax.swing.JFrame {
                 btn_postularActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_postular, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 230, 55));
+        jPanel2.add(btn_postular, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 310, 300, 55));
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Postulante");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, 60));
 
-        jButton1.setBackground(new java.awt.Color(1, 53, 103));
+        jButton1.setBackground(new java.awt.Color(225, 227, 229));
         jButton1.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-clipboard-approve-50.png"))); // NOI18N
         jButton1.setText("Visualizar postulaciones");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -121,14 +123,14 @@ public class Vis_Postulante extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 240, 55));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 380, 270, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura_negativo.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 110));
 
         lbl_recibeced.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         lbl_recibeced.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(lbl_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 150, 20));
+        jPanel2.add(lbl_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 220, 890));
 

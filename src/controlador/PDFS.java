@@ -1,4 +1,3 @@
-
 package controlador;
 
 import com.itextpdf.text.BaseColor;
@@ -11,10 +10,15 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.mysql.jdbc.Blob;
+
 import conexion.Conexion;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,18 +26,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+import static vistas_empleador.JF_loginPostulante.cedula;
 
 public class PDFS {
-    
+
     Conexion mysql = new Conexion();
     Connection cn = mysql.conectar();
     Statement st;
     ResultSet rs;
-    
-    
-    
+
     //Reportes de postulantes
-     public void ReportePostulantes() {
+    public void ReportePostulantes() {
+        String sql = "select * from lista_postulante";
         Document documento = new Document(PageSize.A4.rotate());
         try {
             String ruta = System.getProperty("user.home");
@@ -68,8 +72,8 @@ public class PDFS {
 
             try {
                 cn = mysql.conectar();
-                PreparedStatement pst = cn.prepareStatement("select * from postulante ");
-                rs = pst.executeQuery();
+                st = cn.createStatement();
+                rs = st.executeQuery(sql);
 
                 if (rs.next()) {
                     do {
@@ -83,41 +87,10 @@ public class PDFS {
                         tabla_postulantes.addCell(rs.getString(8));
                         tabla_postulantes.addCell(rs.getString(9));
                         tabla_postulantes.addCell(rs.getString(10));
+                        tabla_postulantes.addCell(rs.getString(11));
                     } while (rs.next());
 
                     documento.add(tabla_postulantes);
-                }
-                Paragraph parrafo2 = new Paragraph();
-                parrafo2.setAlignment(Paragraph.ALIGN_CENTER);
-                parrafo2.add("\n");
-                parrafo2.add("Ofertas disponibles para el tipo de carrera");
-                parrafo2.setFont(FontFactory.getFont("Calibri Light", 8, Font.BOLD, BaseColor.DARK_GRAY));
-
-                documento.add(parrafo2);
-                PdfPTable tabla_carreras = new PdfPTable(3);
-                tabla_carreras.addCell("id");
-                tabla_carreras.addCell("Nombre carrera");
-                tabla_carreras.addCell("Descripcion Carrera");
-
-                try {
-                    Connection cn2 = mysql.conectar();
-                    PreparedStatement pst2 = cn2.prepareStatement(
-                            " select * from carrera where carr_id=1");
-
-                    ResultSet rs2 = pst2.executeQuery();
-
-                    if (rs2.next()) {
-                        do {
-                            tabla_carreras.addCell(rs2.getString(1));
-                            tabla_carreras.addCell(rs2.getString(2));
-                            tabla_carreras.addCell(rs2.getString(3));
-                        } while (rs2.next());
-
-                        documento.add(tabla_carreras);
-                    }
-
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Error al cargar carreras" + e);
                 }
 
             } catch (SQLException e) {
@@ -131,13 +104,10 @@ public class PDFS {
             JOptionPane.showMessageDialog(null, "Error al generar el pdf");
         }
     }
-     
-     
-     
-     
-     //Reportes Empleadores
-      public void ReporteEmpleadores() {
-        Document documento = new Document();
+
+    //Reportes Empleadores
+    public void ReporteEmpleadores() {
+        Document documento = new Document(PageSize.A4.rotate());
         try {
             String ruta = System.getProperty("user.home");
             PdfWriter.getInstance(documento, new FileOutputStream(ruta + "/Desktop/" + "ReporteEmpleadores" + ".pdf"));
@@ -155,7 +125,7 @@ public class PDFS {
             documento.add(header);
             documento.add(parrafo);
 
-             PdfPTable tabla_empleadores = new PdfPTable(10);
+            PdfPTable tabla_empleadores = new PdfPTable(10);
             tabla_empleadores.setWidthPercentage(100);
             tabla_empleadores.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER); // establecer la alineación horizontal
             tabla_empleadores.addCell("Cédula");
@@ -171,7 +141,7 @@ public class PDFS {
 
             try {
                 cn = mysql.conectar();
-                PreparedStatement pst = cn.prepareStatement("select * from empleador");
+                PreparedStatement pst = cn.prepareStatement("select * from lista_empleador");
                 rs = pst.executeQuery();
 
                 if (rs.next()) {
@@ -186,6 +156,7 @@ public class PDFS {
                         tabla_empleadores.addCell(rs.getString(8));
                         tabla_empleadores.addCell(rs.getString(9));
                         tabla_empleadores.addCell(rs.getString(10));
+                        tabla_empleadores.addCell(rs.getString(11));
                     } while (rs.next());
 
                     documento.add(tabla_empleadores);
@@ -203,11 +174,10 @@ public class PDFS {
         }
 
     }
-      
-      
-      
-      //Reportes de carreras
-      public void ReporteCarreras() {
+
+    //Reportes de carreras
+    public void ReporteCarreras() {
+        String sql = "select * from lista_carreras2";
         Document documento = new Document(PageSize.A4.rotate());
         try {
             String ruta = System.getProperty("user.home");
@@ -234,20 +204,20 @@ public class PDFS {
             tabla_carreras.addCell("Descripción Carrera");
             try {
                 cn = mysql.conectar();
-                PreparedStatement pst = cn.prepareStatement("select * from carrera ");
-                rs = pst.executeQuery();
+                st = cn.createStatement();
+                rs = st.executeQuery(sql);
 
                 if (rs.next()) {
                     do {
-                       tabla_carreras.addCell(rs.getString(1));
+                        tabla_carreras.addCell(rs.getString(1));
                         tabla_carreras.addCell(rs.getString(2));
-                       tabla_carreras.addCell(rs.getString(3));
-                       
+                        tabla_carreras.addCell(rs.getString(3));
+
                     } while (rs.next());
 
                     documento.add(tabla_carreras);
                 }
-          
+
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error al cargar postulantes" + e);
             }
@@ -259,6 +229,4 @@ public class PDFS {
             JOptionPane.showMessageDialog(null, "Error al generar el pdf");
         }
     }
-
-
 }

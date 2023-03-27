@@ -1,13 +1,13 @@
 package vistas_empleador;
 
-import controlador.Ctrl_Empleador_j;
+
 import controlador.Ctrl_Postulante;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import modelo.Empleador_j;
+
 import modelo.Postulante;
 import vistas.Vis_Postulante;
-import static vistas_empleador.P_loginEmpleador.cedula;
+
 
 public class JF_loginPostulante extends javax.swing.JFrame {
     
@@ -290,6 +290,10 @@ public class JF_loginPostulante extends javax.swing.JFrame {
 
             postulante.setCedula(Integer.parseInt(obten_user.getText().trim())); //el .trim elimina espacios al final o inicio de la cadena de texto
             postulante.setClave(pass.trim());
+            
+            //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar  
+                int info = postulante.getCedula();
+                cedula = String.valueOf(info);
 
             if (controlPostulante.ValidaPostulante(postulante)) {
                 this.setVisible(false);
@@ -298,8 +302,8 @@ public class JF_loginPostulante extends javax.swing.JFrame {
                 vista.setVisible(true);
 
                 //Aquí envío mi cedula al panel de modificar con la cedula registrada y poder VISUALIZAR/Mostrar  
-                int info = postulante.getCedula();
-                cedula = String.valueOf(info);
+                //int info = postulante.getCedula();
+                //cedula = String.valueOf(info);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Error de inicio de sesión");
