@@ -27,7 +27,7 @@ public class Ctrl_Empleador_j {
                 respuesta = true;
             }
             cn.close();
-            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
+           
             
         }
         catch (SQLException e) {
@@ -61,7 +61,7 @@ public class Ctrl_Empleador_j {
                 respuesta = true;
             }
             cn.close();
-            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
+           
             
         }
         catch (SQLException e) {
@@ -94,7 +94,7 @@ public class Ctrl_Empleador_j {
                 respuesta = true;
             }
             cn.close();
-            JOptionPane.showMessageDialog(null, "Consultando a la BD...");
+          
             
         }
         catch (SQLException e) {

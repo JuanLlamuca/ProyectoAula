@@ -26,7 +26,7 @@ public class Crtl_Hoja_vida {
     public Statement consulta;
     public ResultSet resultado;
 
-    public boolean CrearHojaVida(HojaVida objeto) {
+    public boolean CrearHojadeVida(HojaVida objeto) {
         boolean respuesta = false;
         cn = mysql.conectar();
         try {
@@ -55,7 +55,7 @@ public class Crtl_Hoja_vida {
             insert.setBytes(21, objeto.getImagen()); //hoj_foto
             insert.execute();
             cn.close();
-            JOptionPane.showMessageDialog(null, "Datos ingresados con exito");
+            JOptionPane.showMessageDialog(null, "Hoja de vida generada con exito");
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error Ctrl_hoja_vida crearhojavida" + e);
