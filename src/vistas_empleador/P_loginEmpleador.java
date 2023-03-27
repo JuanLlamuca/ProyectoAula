@@ -9,8 +9,6 @@ public class P_loginEmpleador extends javax.swing.JFrame {
          
     public static String cedula ="0"; //La variable tipo static que se envía a cualquier Jframe la información
     
-    int xMouse, yMouse;
-    
     public P_loginEmpleador() {
         initComponents();
         setLocationRelativeTo(null);
@@ -41,32 +39,33 @@ public class P_loginEmpleador extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Panel_fondo.setBackground(new java.awt.Color(253, 253, 253));
+        Panel_fondo.setBackground(new java.awt.Color(225, 227, 229));
         Panel_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo principal.png"))); // NOI18N
-        Panel_fondo.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 110));
+        lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo_miniatura.png"))); // NOI18N
+        Panel_fondo.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 210, 100));
 
         lbl_iniciodesesion.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         lbl_iniciodesesion.setForeground(new java.awt.Color(0, 0, 0));
         lbl_iniciodesesion.setText("Inicio de sesión");
-        Panel_fondo.add(lbl_iniciodesesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 250, 50));
+        Panel_fondo.add(lbl_iniciodesesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 250, 50));
 
         lbl_clave.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         lbl_clave.setForeground(new java.awt.Color(0, 0, 0));
         lbl_clave.setText("Clave:");
-        Panel_fondo.add(lbl_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        Panel_fondo.add(lbl_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         lbl_usuario.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(0, 0, 0));
         lbl_usuario.setText("Usuario:");
-        Panel_fondo.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        Panel_fondo.add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        obten_clave.setBackground(new java.awt.Color(255, 255, 255));
+        obten_clave.setBackground(new java.awt.Color(225, 227, 229));
         obten_clave.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         obten_clave.setForeground(new java.awt.Color(0, 0, 0));
         obten_clave.setBorder(null);
-        Panel_fondo.add(obten_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 390, 30));
+        Panel_fondo.add(obten_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 390, 30));
 
         btn_entrar.setBackground(new java.awt.Color(27, 107, 184));
         btn_entrar.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
@@ -90,7 +89,7 @@ public class P_loginEmpleador extends javax.swing.JFrame {
                 btn_entrarActionPerformed(evt);
             }
         });
-        Panel_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 390, 40));
+        Panel_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 390, 40));
 
         lbl_Logo_imagen.setFont(new java.awt.Font("Calisto MT", 1, 24)); // NOI18N
         lbl_Logo_imagen.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,17 +105,18 @@ public class P_loginEmpleador extends javax.swing.JFrame {
         lbl_imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/imagen ogin.png"))); // NOI18N
         Panel_fondo.add(lbl_imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 350, 500));
 
-        P_Alerta.setBackground(new java.awt.Color(255, 255, 255));
+        P_Alerta.setBackground(new java.awt.Color(225, 227, 229));
         P_Alerta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_alerta.setBackground(new java.awt.Color(225, 227, 229));
         lbl_alerta.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
         lbl_alerta.setForeground(new java.awt.Color(0, 0, 0));
         lbl_alerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         P_Alerta.add(lbl_alerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 40));
 
-        Panel_fondo.add(P_Alerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 390, 40));
+        Panel_fondo.add(P_Alerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 390, 40));
 
-        obten_user.setBackground(new java.awt.Color(255, 255, 255));
+        obten_user.setBackground(new java.awt.Color(225, 227, 229));
         obten_user.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         obten_user.setForeground(new java.awt.Color(0, 0, 0));
         obten_user.setBorder(null);
@@ -125,9 +125,9 @@ public class P_loginEmpleador extends javax.swing.JFrame {
                 obten_userActionPerformed(evt);
             }
         });
-        Panel_fondo.add(obten_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 390, 30));
-        Panel_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 390, 10));
-        Panel_fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 390, 10));
+        Panel_fondo.add(obten_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 390, 30));
+        Panel_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 390, 10));
+        Panel_fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 390, 10));
 
         getContentPane().add(Panel_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 500));
 
@@ -231,6 +231,8 @@ public class P_loginEmpleador extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Sesión iniciada...");
                
              this.setVisible(false);
+             P_bienvenida bienvenida = new P_bienvenida();
+             bienvenida.setVisible(false);
              //Paso al menú principal
              P_menu m = new P_menu();
              m.setVisible(true);             

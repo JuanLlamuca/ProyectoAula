@@ -45,6 +45,7 @@ import modelo.HojaVida;
 import static vistas_empleador.JF_loginPostulante.cedula;
 
 import java.awt.Image;
+import vistas_empleador.JF_loginPostulante;
 
 /**
  *
@@ -64,6 +65,7 @@ public class CrearHojadeVida extends javax.swing.JPanel {
 
     public CrearHojadeVida() {
         initComponents();
+        txt_cedula.setText(JF_loginPostulante.cedula);
         traerImagen();
         llenarDatos();
     }
@@ -144,6 +146,8 @@ public class CrearHojadeVida extends javax.swing.JPanel {
         jLabel20.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Cédula");
+
+        txt_cedula.setEditable(false);
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -456,7 +460,7 @@ public class CrearHojadeVida extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

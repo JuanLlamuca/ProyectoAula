@@ -11,6 +11,7 @@ public class P_creaEmpleador extends javax.swing.JFrame {
   
     public P_creaEmpleador() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
         int xMouse, yMouse;
@@ -23,7 +24,6 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         P_head = new javax.swing.JPanel();
         lbl_logo = new javax.swing.JLabel();
         lbl_registrodeempleador = new javax.swing.JLabel();
-        lbl_logo1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbl_comentario = new javax.swing.JLabel();
         lbl_informaciondela = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_fondo.setBackground(new java.awt.Color(253, 253, 253));
+        P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P_head.setBackground(new java.awt.Color(1, 53, 103));
@@ -88,13 +88,10 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         lbl_registrodeempleador.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         lbl_registrodeempleador.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registrodeempleador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_registrodeempleador.setText("Registro de empleador");
-        P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, -1, 60));
+        lbl_registrodeempleador.setText("Registro de Empleador");
+        P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 60));
 
-        lbl_logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo tercero negativo.png"))); // NOI18N
-        P_head.add(lbl_logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 60));
-
-        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 990, 60));
+        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 90));
         P_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 990, 10));
 
         lbl_comentario.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
@@ -114,12 +111,12 @@ public class P_creaEmpleador extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(txt_cedula);
 
-        P_fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, -1));
+        P_fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Descripción:");
-        P_fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, 20));
+        P_fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, -1, 20));
 
         jScrollPane2.setViewportView(txt_nombre);
 
@@ -160,48 +157,48 @@ public class P_creaEmpleador extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Repita la clave:");
-        P_fondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, -1, 30));
+        jLabel7.setText("Confirmar contraseña:");
+        P_fondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, 30));
 
         jScrollPane6.setViewportView(txt_nombreEmpresa);
 
-        P_fondo.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 210, -1));
+        P_fondo.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre de la empresa:");
-        P_fondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, 20));
+        P_fondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, -1, 20));
 
         jScrollPane7.setViewportView(txt_ubicacion);
 
-        P_fondo.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 290, -1));
+        P_fondo.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 290, -1));
 
         jLabel9.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Ubicación:");
-        P_fondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, 20));
+        P_fondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, 20));
 
         jScrollPane8.setViewportView(txt_contacto);
 
-        P_fondo.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 240, -1));
+        P_fondo.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 290, -1));
 
         jLabel10.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Contacto:");
-        P_fondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 20));
+        P_fondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, 20));
 
         jScrollPane9.setViewportView(txt_correoEmp);
 
-        P_fondo.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 240, -1));
+        P_fondo.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 290, -1));
 
         jLabel11.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Email:");
-        P_fondo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, 20));
+        P_fondo.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, -1, 20));
 
         jScrollPane10.setViewportView(txt_descripcion);
 
-        P_fondo.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 290, -1));
+        P_fondo.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 290, -1));
         P_fondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 990, 10));
 
         lbl_informaciondela2.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
@@ -224,13 +221,13 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usuario:");
         P_fondo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
-        P_fondo.add(txt_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 190, -1));
+        P_fondo.add(txt_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 200, -1));
 
         jLabel14.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Cree la clave:");
-        P_fondo.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, 30));
-        P_fondo.add(txt_validaclave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, 190, -1));
+        jLabel14.setText("Crear contraseña:");
+        P_fondo.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, -1, 30));
+        P_fondo.add(txt_validaclave, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 200, -1));
 
         Panel_registrar.setBackground(new java.awt.Color(1, 53, 103));
         Panel_registrar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -349,7 +346,6 @@ public class P_creaEmpleador extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_informaciondela1;
     private javax.swing.JLabel lbl_informaciondela2;
     private javax.swing.JLabel lbl_logo;
-    private javax.swing.JLabel lbl_logo1;
     private javax.swing.JLabel lbl_registrodeempleador;
     private javax.swing.JTextPane txt_apellido;
     private javax.swing.JTextPane txt_cedula;
@@ -366,52 +362,63 @@ public class P_creaEmpleador extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void insertar() {
-        Empleador_j empleador = new Empleador_j();
-        Ctrl_Empleador_j controlEmpleador = new Ctrl_Empleador_j();
+    Empleador_j empleador = new Empleador_j();
+    Ctrl_Empleador_j controlEmpleador = new Ctrl_Empleador_j();
 
-        if (!txt_cedula.getText().isEmpty() && !txt_nombre.getText().isEmpty() && !txt_apellido.getText().isEmpty() && !txt_correo.getText().isEmpty()
-                && !txt_nombreEmpresa.getText().isEmpty() && !txt_labor.getText().isEmpty() && !txt_ubicacion.getText().isEmpty() && !txt_contacto.getText().isEmpty()
-                && !txt_correoEmp.getText().isEmpty() && !txt_descripcion.getText().isEmpty() && !String.valueOf(txt_clave.getPassword()).isEmpty() && !String.valueOf(txt_validaclave.getPassword()).isEmpty()) {
-            
-            if(txt_clave.getText().equals(txt_validaclave.getText())) {
-                
-                empleador.setEmp_ced(Integer.parseInt(txt_cedula.getText()));
-                empleador.setEmp_nombre(txt_nombre.getText().trim());
-                empleador.setEmp_apellido(txt_apellido.getText().trim());
-                empleador.setEmp_correo(txt_correo.getText().trim());
-                empleador.setEmp_nomEmp(txt_nombreEmpresa.getText());
-                empleador.setEmp_laboCum(txt_labor.getText().trim());
-                empleador.setEmp_ubiEmp(txt_ubicacion.getText().trim());
-                empleador.setEmp_telfEmp(Integer.parseInt(txt_contacto.getText().trim()));
-                empleador.setEmp_corrEmp(txt_correoEmp.getText().trim());
-                empleador.setEmp_desEmp(txt_descripcion.getText().trim());
-                empleador.setEmp_clave(String.valueOf(txt_clave.getPassword()).trim());
-                
-                if (controlEmpleador.InsertarEmpleador(empleador)) {
-                    JOptionPane.showMessageDialog(null, "Registro exitoso");
-                    
-                    //Limpiar los campos 
-                    txt_cedula.setText("");
-                    txt_nombre.setText("");
-                    txt_apellido.setText("");
-                    txt_correo.setText("");
-                    txt_nombreEmpresa.setText("");
-                    txt_labor.setText("");
-                    txt_ubicacion.setText("");
-                    txt_contacto.setText("");
-                    txt_correoEmp.setText("");
-                    txt_descripcion.setText("");
-                    txt_clave.setText("");
-                    txt_validaclave.setText("");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Error de registro de usuario");
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Ingrese todos los datos en los campos");
-        }
+    if (!txt_cedula.getText().isEmpty() && !txt_nombre.getText().isEmpty() && !txt_apellido.getText().isEmpty() && !txt_correo.getText().isEmpty()
+            && !txt_nombreEmpresa.getText().isEmpty() && !txt_labor.getText().isEmpty() && !txt_ubicacion.getText().isEmpty() && !txt_contacto.getText().isEmpty()
+            && !txt_correoEmp.getText().isEmpty() && !txt_descripcion.getText().isEmpty() && !String.valueOf(txt_clave.getPassword()).isEmpty() && !String.valueOf(txt_validaclave.getPassword()).isEmpty()) {
         
+        if(txt_clave.getText().equals(txt_validaclave.getText())) {
+            
+            int cedula = Integer.parseInt(txt_cedula.getText());
+            
+            // Consulta previa para verificar si la cédula ya está registrada
+            if (controlEmpleador.BuscarEmpleadorPorCedula(empleador)) {
+                JOptionPane.showMessageDialog(null, "El usuario ya existe en la base de datos");
+                
+                
+            }else{
+               
+            empleador.setEmp_ced(cedula);
+            empleador.setEmp_nombre(txt_nombre.getText().trim());
+            empleador.setEmp_apellido(txt_apellido.getText().trim());
+            empleador.setEmp_correo(txt_correo.getText().trim());
+            empleador.setEmp_nomEmp(txt_nombreEmpresa.getText());
+            empleador.setEmp_laboCum(txt_labor.getText().trim());
+            empleador.setEmp_ubiEmp(txt_ubicacion.getText().trim());
+            empleador.setEmp_telfEmp(Integer.parseInt(txt_contacto.getText().trim()));
+            empleador.setEmp_corrEmp(txt_correoEmp.getText().trim());
+            empleador.setEmp_desEmp(txt_descripcion.getText().trim());
+            empleador.setEmp_clave(String.valueOf(txt_clave.getPassword()).trim());
+            
+            if (controlEmpleador.InsertarEmpleador(empleador)) {
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
+                
+                //Limpiar los campos 
+                txt_cedula.setText("");
+                txt_nombre.setText("");
+                txt_apellido.setText("");
+                txt_correo.setText("");
+                txt_nombreEmpresa.setText("");
+                txt_labor.setText("");
+                txt_ubicacion.setText("");
+                txt_contacto.setText("");
+                txt_correoEmp.setText("");
+                txt_descripcion.setText("");
+                txt_clave.setText("");
+                txt_validaclave.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "Error de registro de usuario");
+            }
+                
+            }      
+        }else{
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+        }
+    }else{
+        JOptionPane.showMessageDialog(null, "Ingrese todos los datos en los campos");
     }
+}
+
 }

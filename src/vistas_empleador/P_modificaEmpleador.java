@@ -17,6 +17,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         txt_recibeced.setText(P_loginEmpleador.cedula); //Variable static que envía los datos a otro Jframse 
+        this.Visualizar();
     }
        
     int xMouse, yMouse;
@@ -30,7 +31,6 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         P_head = new javax.swing.JPanel();
         lbl_logo1 = new javax.swing.JLabel();
         lbl_registrodeempleador = new javax.swing.JLabel();
-        lbl_logo2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbl_informaciondela1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,8 +67,6 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         Panel_registrar = new javax.swing.JPanel();
         lbl_guardar = new javax.swing.JLabel();
         lbl_comentario1 = new javax.swing.JLabel();
-        P_visualizar = new javax.swing.JPanel();
-        lbl_visualizar = new javax.swing.JLabel();
         txt_recibeced = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txt_clave = new javax.swing.JPasswordField();
@@ -81,7 +79,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         P_fondo.setBackground(new java.awt.Color(253, 253, 253));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_fondo1.setBackground(new java.awt.Color(253, 253, 253));
+        P_fondo1.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P_head.setBackground(new java.awt.Color(1, 53, 103));
@@ -104,10 +102,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         lbl_registrodeempleador.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registrodeempleador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_registrodeempleador.setText("Editar Perfil");
-        P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, 60));
-
-        lbl_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo tercero negativo.png"))); // NOI18N
-        P_head.add(lbl_logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 60));
+        P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, 60));
 
         P_fondo1.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 70));
         P_fondo1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 990, 10));
@@ -125,7 +120,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Clave de cuenta:");
-        P_fondo1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, 30));
+        P_fondo1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, 30));
 
         jScrollPane2.setViewportView(txt_nombre);
 
@@ -161,43 +156,43 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(txt_nEmpresa);
 
-        P_fondo1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 210, -1));
+        P_fondo1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre de la empresa:");
-        P_fondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, 20));
+        P_fondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, 20));
 
         jScrollPane7.setViewportView(txt_ubiEmp);
 
-        P_fondo1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 290, -1));
+        P_fondo1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 290, -1));
 
         jLabel9.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Ubicación:");
-        P_fondo1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, 20));
+        P_fondo1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, 20));
 
         jScrollPane8.setViewportView(txt_telefono);
 
-        P_fondo1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 240, -1));
+        P_fondo1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 290, -1));
 
         jLabel10.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Contacto:");
-        P_fondo1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, 20));
+        P_fondo1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, 20));
 
         jScrollPane9.setViewportView(txt_emailEmp);
 
-        P_fondo1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 240, -1));
+        P_fondo1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 290, -1));
 
         jLabel11.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Email:");
-        P_fondo1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, 20));
+        P_fondo1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, -1, 20));
 
         jScrollPane10.setViewportView(txt_descripcion);
 
-        P_fondo1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 290, -1));
+        P_fondo1.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 290, -1));
         P_fondo1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 990, 10));
 
         lbl_informaciondela4.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
@@ -238,39 +233,16 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         lbl_comentario1.setText("Aquí podrás editar alguna información personal que te hayas equivocado al registrar tu cuenta.");
         P_fondo1.add(lbl_comentario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        P_visualizar.setBackground(new java.awt.Color(1, 53, 103));
-        P_visualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_visualizar.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
-        lbl_visualizar.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_visualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_visualizar.setText("Visualizar");
-        lbl_visualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbl_visualizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_visualizarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbl_visualizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbl_visualizarMouseExited(evt);
-            }
-        });
-        P_visualizar.add(lbl_visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
-
-        P_fondo1.add(P_visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 130, 30));
-
         txt_recibeced.setEditable(false);
-        P_fondo1.add(txt_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, 30));
+        P_fondo1.add(txt_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Descripción:");
-        P_fondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, 20));
+        P_fondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, 20));
 
         txt_clave.setEditable(false);
-        P_fondo1.add(txt_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 150, -1));
+        P_fondo1.add(txt_clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 180, -1));
 
         P_fondo.add(P_fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 520));
 
@@ -278,14 +250,6 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lbl_visualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarMouseExited
-        P_visualizar.setBackground(new Color(1, 53, 103));
-    }//GEN-LAST:event_lbl_visualizarMouseExited
-
-    private void lbl_visualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarMouseEntered
-        P_visualizar.setBackground(new Color(27, 107, 184));
-    }//GEN-LAST:event_lbl_visualizarMouseEntered
 
     private void lbl_guardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_guardarMouseExited
         Panel_registrar.setBackground(new Color(1, 53, 103));
@@ -309,10 +273,6 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);    
     }//GEN-LAST:event_P_headMouseDragged
-
-    private void lbl_visualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_visualizarMouseClicked
-        Visualizar();
-    }//GEN-LAST:event_lbl_visualizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -353,7 +313,6 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
     private javax.swing.JPanel P_fondo;
     private javax.swing.JPanel P_fondo1;
     private javax.swing.JPanel P_head;
-    private javax.swing.JPanel P_visualizar;
     private javax.swing.JPanel Panel_registrar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -383,9 +342,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_informaciondela1;
     private javax.swing.JLabel lbl_informaciondela4;
     private javax.swing.JLabel lbl_logo1;
-    private javax.swing.JLabel lbl_logo2;
     private javax.swing.JLabel lbl_registrodeempleador;
-    private javax.swing.JLabel lbl_visualizar;
     private javax.swing.JTextPane txt_apellido;
     private javax.swing.JPasswordField txt_clave;
     private javax.swing.JTextPane txt_descripcion;
