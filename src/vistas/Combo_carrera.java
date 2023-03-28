@@ -39,7 +39,6 @@ public class Combo_carrera extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -54,7 +53,6 @@ public class Combo_carrera extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         txt_idCarreras = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txt_nombre1 = new javax.swing.JTextField();
@@ -70,8 +68,6 @@ public class Combo_carrera extends javax.swing.JPanel {
         txt_idCarreras1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(225, 227, 229));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -115,6 +111,7 @@ public class Combo_carrera extends javax.swing.JPanel {
         btn_modificar.setBackground(new java.awt.Color(1, 53, 103));
         btn_modificar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modi.png"))); // NOI18N
         btn_modificar.setText("Modificar");
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +122,7 @@ public class Combo_carrera extends javax.swing.JPanel {
         btn_eliminar.setBackground(new java.awt.Color(1, 53, 103));
         btn_eliminar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,8 +137,6 @@ public class Combo_carrera extends javax.swing.JPanel {
         txt_idCarreras.setEnabled(false);
 
         jPanel1.setBackground(new java.awt.Color(225, 227, 229));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Calisto MT", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -159,7 +155,8 @@ public class Combo_carrera extends javax.swing.JPanel {
         btn_guardar1.setBackground(new java.awt.Color(1, 53, 103));
         btn_guardar1.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_guardar1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_guardar1.setText("Ingresar carrera");
+        btn_guardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-guardar-50.png"))); // NOI18N
+        btn_guardar1.setText("Ingresar");
         btn_guardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardar1ActionPerformed(evt);
@@ -232,17 +229,16 @@ public class Combo_carrera extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txt_idCarreras1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txt_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel6)
-                        .addGap(0, 644, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4))))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,9 +267,7 @@ public class Combo_carrera extends javax.swing.JPanel {
                     .addComponent(btn_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(117, 117, 117)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 493, Short.MAX_VALUE))
         );
@@ -303,9 +297,7 @@ public class Combo_carrera extends javax.swing.JPanel {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txt_idCarreras, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel1)
-                        .addGap(0, 644, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -313,7 +305,7 @@ public class Combo_carrera extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -347,9 +339,7 @@ public class Combo_carrera extends javax.swing.JPanel {
                     .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(117, 117, 117)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 493, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,13 +454,11 @@ public class Combo_carrera extends javax.swing.JPanel {
     private javax.swing.JButton btn_guardar1;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_modificar1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
