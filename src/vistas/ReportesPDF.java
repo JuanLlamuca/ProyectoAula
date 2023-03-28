@@ -29,7 +29,6 @@ public class ReportesPDF extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_carreras = new javax.swing.JButton();
@@ -40,8 +39,6 @@ public class ReportesPDF extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(225, 227, 229));
         setForeground(new java.awt.Color(225, 227, 229));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -54,6 +51,7 @@ public class ReportesPDF extends javax.swing.JPanel {
         btn_carreras.setBackground(new java.awt.Color(1, 53, 103));
         btn_carreras.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_carreras.setForeground(new java.awt.Color(255, 255, 255));
+        btn_carreras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btn_carreras.setText("Generar");
         btn_carreras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +70,7 @@ public class ReportesPDF extends javax.swing.JPanel {
         btn_empleadores.setBackground(new java.awt.Color(1, 53, 103));
         btn_empleadores.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_empleadores.setForeground(new java.awt.Color(255, 255, 255));
+        btn_empleadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btn_empleadores.setText("Generar");
         btn_empleadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +81,7 @@ public class ReportesPDF extends javax.swing.JPanel {
         btn_postulantes.setBackground(new java.awt.Color(1, 53, 103));
         btn_postulantes.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_postulantes.setForeground(new java.awt.Color(255, 255, 255));
+        btn_postulantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
         btn_postulantes.setText("Generar");
         btn_postulantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,9 +95,6 @@ public class ReportesPDF extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(619, 619, 619)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(579, 579, 579)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -121,8 +118,7 @@ public class ReportesPDF extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(147, 147, 147)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -165,7 +161,6 @@ public class ReportesPDF extends javax.swing.JPanel {
     private javax.swing.JButton btn_carreras;
     private javax.swing.JButton btn_empleadores;
     private javax.swing.JButton btn_postulantes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

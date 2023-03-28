@@ -20,7 +20,8 @@ public class Ctrl_emp_ofertas {
     //metodo para agregar oferta laboral
     public boolean insertOferta(OfertaLaboral_j objeto){
         Boolean respuesta = false;
-     
+        cn = mysql.conectar();
+        
         try{
         CallableStatement insert = (CallableStatement) cn.prepareCall("{CALL sp_ofertaLboral(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"); 
             insert.setInt(1, 0);
@@ -53,6 +54,7 @@ public class Ctrl_emp_ofertas {
     //Para modificar oferta laboral
     public boolean modificarOferta(OfertaLaboral_j objeto){
         Boolean respuesta = false;
+        cn = mysql.conectar();
      
         try{
         CallableStatement modificar = (CallableStatement) cn.prepareCall("{CALL sp_ofertaLboral(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}"); 

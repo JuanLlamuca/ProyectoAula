@@ -6,6 +6,7 @@ package vistas;
 
 import java.awt.BorderLayout;
 import vistas_empleador.JF_loginPostulante;
+import vistas_empleador.P_bienvenida;
 import vistas_empleador.P_loginEmpleador;
 
 /**
@@ -41,19 +42,21 @@ public class Vis_Postulante extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lbl_recibeced = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         contenedor = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(1, 53, 103));
+        jPanel1.setBackground(new java.awt.Color(161, 180, 212));
         jPanel1.setForeground(new java.awt.Color(0, 0, 255));
         jPanel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Bienvenido al Sistema de Bolsa de Emplos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +78,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 0, 1270, 80));
 
-        jPanel2.setBackground(new java.awt.Color(1, 53, 103));
+        jPanel2.setBackground(new java.awt.Color(161, 180, 212));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_crearHoja.setBackground(new java.awt.Color(225, 229, 227));
@@ -132,6 +135,17 @@ public class Vis_Postulante extends javax.swing.JFrame {
         lbl_recibeced.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(lbl_recibeced, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 150, 20));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Cerrar Sesión");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 830, 220, 60));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 220, 890));
 
         contenedor.setBackground(new java.awt.Color(225, 227, 229));
@@ -167,7 +181,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
-        getContentPane().add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 1260, 810));
+        getContentPane().add(contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 1260, 810));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,6 +222,13 @@ public class Vis_Postulante extends javax.swing.JFrame {
         contenedor.revalidate();
         contenedor.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        P_bienvenida home = new P_bienvenida();
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,6 +271,7 @@ public class Vis_Postulante extends javax.swing.JFrame {
     private javax.swing.JButton btn_postular;
     private javax.swing.JPanel contenedor;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -138,9 +138,9 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
     Connection cn = mysql.conectar();
 
     private void Visualizar(){
-        Object[] postulantes = new Object[6];
+        Object[] postulantes = new Object[5];
         DefaultTableModel modelo = (DefaultTableModel) table_postulantes.getModel();
-        
+         //cn = mysql.conectar();
             int cod = Integer.parseInt(JF_mostrarOfertas.codigo);
         
         try{
