@@ -83,18 +83,19 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
         P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Reporte de Ofertas");
-        P_head.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 310, 50));
+        jLabel1.setText("Opciones de oferta laboral");
+        P_head.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 420, 50));
 
         lbl_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/Logo_miniatura.png"))); // NOI18N
         P_head.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 190, 90));
 
-        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 90));
+        P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
 
         Table_ofertas.setBackground(new java.awt.Color(225, 227, 229));
         Table_ofertas.setModel(new javax.swing.table.DefaultTableModel(
@@ -296,7 +297,7 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
         });
         P_fondo.add(btn_ver_postulantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1043, 448, 150, 30));
 
-        getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1200, 720));
+        getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

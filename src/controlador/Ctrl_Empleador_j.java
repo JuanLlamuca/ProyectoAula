@@ -4,7 +4,6 @@ import conexion.Conexion;
 import java.sql.Connection;
 import modelo.Empleador_j;
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 
 public class Ctrl_Empleador_j {
@@ -15,6 +14,7 @@ public class Ctrl_Empleador_j {
     //Para validar que no me deje ingresar el mismo empleador por cedula
     public boolean BuscarEmpleadorPorCedula (Empleador_j objeto){
         boolean respuesta = false;
+        cn = mysql.conectar();
         
             
         try{

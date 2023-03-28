@@ -3,8 +3,6 @@ package vistas_empleador;
 
 import controlador.Ctrl_Postulante;
 import java.awt.Color;
-import javax.swing.JOptionPane;
-
 import modelo.Postulante;
 import vistas.Vis_Postulante;
 
@@ -37,6 +35,7 @@ public class JF_loginPostulante extends javax.swing.JFrame {
         btn_entrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        lbl_alerta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
@@ -121,6 +120,10 @@ public class JF_loginPostulante extends javax.swing.JFrame {
         P_fondo.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 390, 40));
         P_fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 390, 10));
         P_fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 390, 10));
+
+        lbl_alerta.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
+        lbl_alerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        P_fondo.add(lbl_alerta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 390, 40));
 
         getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 530));
 
@@ -220,6 +223,7 @@ public class JF_loginPostulante extends javax.swing.JFrame {
     private javax.swing.JButton btn_entrar;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lbl_alerta;
     private javax.swing.JLabel lbl_clave;
     private javax.swing.JLabel lbl_imagen;
     private javax.swing.JLabel lbl_iniciodesesion;
@@ -258,10 +262,12 @@ public class JF_loginPostulante extends javax.swing.JFrame {
                 //cedula = String.valueOf(info);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Error de inicio de sesión");
+                lbl_alerta.setText("¡Usuario y contraseña inválidos!");
+                lbl_alerta.setForeground(Color.red);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+            lbl_alerta.setText("Asegúrese de no dejar ningún campo vacío");
+            lbl_alerta.setForeground(Color.BLUE);
         }
     }
 

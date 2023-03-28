@@ -42,7 +42,7 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
         P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_head.setBackground(new java.awt.Color(255, 255, 255));
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
@@ -58,11 +58,11 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Cedula", "Apellido/s", "Nombre/s", "Fecha de postulacion", "Codigo Hoja Vida"
+                "Codigo", "Cedula", "Apellido/s", "Nombre/s", "Fecha de postulacion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -71,7 +71,7 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table_postulantes);
 
-        P_fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1200, 570));
+        P_fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 1180, 560));
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,7 +156,6 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
                 postulantes[2] = rs.getString("p.post_apellidos");
                 postulantes[3] = rs.getString("p.post_nombres");
                 postulantes[4] = rs.getDate("pi.pcion_fePostulacion");
-                postulantes[0] = rs.getInt("h.hoj_id");
                 
                 modelo.addRow(postulantes);
             }

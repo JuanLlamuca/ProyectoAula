@@ -82,7 +82,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         P_fondo1.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_head.setBackground(new java.awt.Color(1, 53, 103));
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 P_headMouseDragged(evt);
@@ -99,7 +99,7 @@ public class P_modificaEmpleador extends javax.swing.JFrame {
         P_head.add(lbl_logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
 
         lbl_registrodeempleador.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
-        lbl_registrodeempleador.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_registrodeempleador.setForeground(new java.awt.Color(0, 0, 0));
         lbl_registrodeempleador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_registrodeempleador.setText("Editar Perfil");
         P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, 60));
