@@ -7,15 +7,18 @@ package vistas;
 import conexion.Conexion;
 import controlador.Ctrl_Postulante;
 import controlador.Ctrl_carreras;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Carreras;
 import modelo.Postulante;
+import vistas.Vista_administrador;
 
 public class Combo_estudiante extends javax.swing.JPanel {
 
@@ -29,13 +32,13 @@ public class Combo_estudiante extends javax.swing.JPanel {
         initComponents();
         mostrarCarrera();
         llenarTabla();
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_cedula = new javax.swing.JTextField();
@@ -65,12 +68,11 @@ public class Combo_estudiante extends javax.swing.JPanel {
         tabla_postulante = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
         txt_clave = new javax.swing.JTextField();
+        lbl_mensaje = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 227, 229));
         setForeground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(854, 490));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,6 +128,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
         btn_insertar.setBackground(new java.awt.Color(1, 53, 103));
         btn_insertar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_insertar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_insertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-guardar-50.png"))); // NOI18N
         btn_insertar.setText("Ingresar datos");
         btn_insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +139,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
         btn_modificar.setBackground(new java.awt.Color(1, 53, 103));
         btn_modificar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_modificar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modi.png"))); // NOI18N
         btn_modificar.setText("Modificar");
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +150,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
         btn_eliminar.setBackground(new java.awt.Color(1, 53, 103));
         btn_eliminar.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
         btn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +173,11 @@ public class Combo_estudiante extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tabla_postulante);
 
+        jLabel13.setFont(new java.awt.Font("Calisto MT", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Contraseña");
+
+        lbl_mensaje.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,46 +186,39 @@ public class Combo_estudiante extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(71, 71, 71)
-                                    .addComponent(jLabel8))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13))
-                                .addGap(6, 6, 6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_direccion)
-                            .addComponent(txt_correo)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_numeroD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txt_educacion, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txt_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(combo_carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(btn_insertar)
-                                .addGap(81, 81, 81)
-                                .addComponent(btn_modificar))
+                                            .addGap(71, 71, 71)
+                                            .addComponent(jLabel8))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addContainerGap()
+                                            .addComponent(jLabel7)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13))
+                                        .addGap(6, 6, 6)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_direccion)
+                                    .addComponent(txt_correo)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_numeroD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_educacion, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txt_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(combo_carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 7, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -239,26 +241,34 @@ public class Combo_estudiante extends javax.swing.JPanel {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txt_nombres, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                                                    .addComponent(txt_apellidos))))))
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txt_apellidos)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(btn_insertar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btn_modificar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbl_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(111, 111, 111)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(lbl_mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -300,20 +310,18 @@ public class Combo_estudiante extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(combo_carrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txt_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(17, 17, 17))
             .addComponent(jScrollPane2)
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void calendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calendarioPropertyChange
@@ -342,10 +350,13 @@ public class Combo_estudiante extends javax.swing.JPanel {
             postulante.setNacimiento(txt_nacimiento.getText());
 
             if (controlPostulante.eliminarEstudiante(postulante)) {
-                JOptionPane.showMessageDialog(null, "Datos Modificados correctamente");
+
+                lbl_mensaje.setText("Datos Eliminados correctamente");
+                lbl_mensaje.setForeground(Color.BLUE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+            lbl_mensaje.setText("Seleccione una fecha");
+            lbl_mensaje.setForeground(Color.RED);
         }
 
         //limpiar campo
@@ -365,16 +376,17 @@ public class Combo_estudiante extends javax.swing.JPanel {
     private void btn_insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertarActionPerformed
         // TODO add your handling code here:
         insertar();
-        
-        
-        
+
+
     }//GEN-LAST:event_btn_insertarActionPerformed
 
     private void tabla_postulanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_postulanteMouseClicked
         // TODO add your handling code here:
         int fila = tabla_postulante.getSelectedRow();
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione una fila");
+
+            lbl_mensaje.setText("Selecciones una fila ");
+            lbl_mensaje.setForeground(Color.RED);
         } else {
             int cedula = Integer.parseInt((String) tabla_postulante.getValueAt(fila, 0).toString());
             String nombres = (String) tabla_postulante.getValueAt(fila, 1);
@@ -385,6 +397,8 @@ public class Combo_estudiante extends javax.swing.JPanel {
             String direccion = (String) tabla_postulante.getValueAt(fila, 6);
             String educacion = (String) tabla_postulante.getValueAt(fila, 7);
             String nacimiento = (String) tabla_postulante.getValueAt(fila, 8);
+            int carrera = (int) tabla_postulante.getValueAt(fila, 9);
+            String clave = (String) tabla_postulante.getValueAt(fila, 10);
 
             txt_cedula.setText("" + cedula);
             txt_nombres.setText(nombres);
@@ -395,6 +409,10 @@ public class Combo_estudiante extends javax.swing.JPanel {
             txt_direccion.setText(direccion);
             txt_educacion.setText(educacion);
             txt_nacimiento.setText(nacimiento);
+
+            combo_carrera.setSelectedItem(carrera);
+            txt_clave.setText(clave);
+
         }
     }//GEN-LAST:event_tabla_postulanteMouseClicked
 
@@ -402,6 +420,12 @@ public class Combo_estudiante extends javax.swing.JPanel {
         // TODO add your handling code here:
         Postulante postulante = new Postulante();
         Ctrl_Postulante controlPostulante = new Ctrl_Postulante();
+
+        String cadenaCompleta = (String) combo_carrera.getSelectedItem();
+        int posicion = cadenaCompleta.indexOf("-");
+        String numeroTexto = cadenaCompleta.substring(0, posicion);
+        int numero = Integer.parseInt(numeroTexto);
+        System.out.println("" + numero);
 
         if (!txt_cedula.getText().isEmpty() && !txt_nombres.getText().isEmpty() && !txt_apellidos.getText().isEmpty() && !txt_numeroP.getText().isEmpty()
                 && !txt_numeroD.getText().isEmpty() && !txt_correo.getText().isEmpty() && !txt_direccion.getText().isEmpty() && !txt_direccion.getText().isEmpty()
@@ -414,15 +438,20 @@ public class Combo_estudiante extends javax.swing.JPanel {
             postulante.setCorreo(txt_correo.getText());
             postulante.setDireccion(txt_direccion.getText());
             postulante.setEduacion(txt_educacion.getText());
+            postulante.setCarrera(numero);
             postulante.setNacimiento(txt_nacimiento.getText());
+
             postulante.setClave(txt_clave.getText());
-            
 
             if (controlPostulante.modificarEstudiante(postulante)) {
-                JOptionPane.showMessageDialog(null, "Datos Modificados correctamente");
+
+                lbl_mensaje.setText("Datos modificados correctamente ");
+                lbl_mensaje.setForeground(Color.BLUE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+
+            lbl_mensaje.setText("ingrese todos sus datos");
+            lbl_mensaje.setForeground(Color.RED);
         }
 
         //limpiar campo
@@ -446,7 +475,6 @@ public class Combo_estudiante extends javax.swing.JPanel {
     private javax.swing.JButton btn_modificar;
     private com.toedter.calendar.JCalendar calendario;
     private javax.swing.JComboBox<String> combo_carrera;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -460,6 +488,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_mensaje;
     private javax.swing.JTable tabla_postulante;
     private javax.swing.JTextField txt_apellidos;
     private javax.swing.JTextField txt_cedula;
@@ -490,7 +519,7 @@ public class Combo_estudiante extends javax.swing.JPanel {
             rs = st.executeQuery(sql);
 
             Object[] postulante = new Object[11];
-             modelo= (DefaultTableModel) tabla_postulante.getModel();
+            modelo = (DefaultTableModel) tabla_postulante.getModel();
             while (rs.next()) {
                 postulante[0] = rs.getInt("post_cedula");
                 postulante[1] = rs.getString("post_nombres");
@@ -502,22 +531,27 @@ public class Combo_estudiante extends javax.swing.JPanel {
                 postulante[7] = rs.getString("post_educacion");
                 postulante[8] = rs.getString("post_feNacimiento");
                 postulante[9] = rs.getInt("carr_id");
-                postulante[10]=rs.getString("post_clave");
+                postulante[10] = rs.getString("post_clave");
                 modelo.addRow(postulante);
             }
             tabla_postulante.setModel(modelo);
- 
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Llenar tabla " + e);
+            System.out.println("Error llenar tabla: " + e);
+            lbl_mensaje.setText("Error al llenar la tabla ");
+            lbl_mensaje.setForeground(Color.RED);
         }
     }
-    
-    public void insertar(){
+
+    public void insertar() {
         Postulante postulante = new Postulante();
         Ctrl_Postulante controlPostulante = new Ctrl_Postulante();
 
         String cadenaCompleta = (String) combo_carrera.getSelectedItem();
         int posicion = cadenaCompleta.indexOf("-");
+        String numeroTexto = cadenaCompleta.substring(0, posicion);
+        int numero = Integer.parseInt(numeroTexto);
+        System.out.println("numero" + numero);
 
         if (!txt_cedula.getText().isEmpty() && !txt_nombres.getText().isEmpty() && !txt_apellidos.getText().isEmpty() && !txt_numeroP.getText().isEmpty()
                 && !txt_numeroD.getText().isEmpty() && !txt_correo.getText().isEmpty() && !txt_direccion.getText().isEmpty() && !txt_direccion.getText().isEmpty()
@@ -532,17 +566,19 @@ public class Combo_estudiante extends javax.swing.JPanel {
             postulante.setDireccion(txt_direccion.getText());
             postulante.setEduacion(txt_educacion.getText());
             postulante.setNacimiento(txt_nacimiento.getText());
-            postulante.setCarrera(posicion);
+            postulante.setCarrera(numero);
             postulante.setClave(txt_clave.getText());
 
             if (controlPostulante.InsertarPostulante(postulante)) {
-                JOptionPane.showMessageDialog(null, "Ingresado");
+
+                lbl_mensaje.setText("Datos ingresados correctament ");
+                lbl_mensaje.setForeground(Color.BLUE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Escoja una linea");
-        }
-       
 
+            lbl_mensaje.setText("Ingrese todos sus datos ");
+            lbl_mensaje.setForeground(Color.RED);
+        }
         //limpiar campo
         txt_cedula.setText("");
         txt_nombres.setText("");
@@ -553,8 +589,9 @@ public class Combo_estudiante extends javax.swing.JPanel {
         txt_direccion.setText("");
         txt_educacion.setText("");
         txt_nacimiento.setText("");
-        combo_carrera.setSelectedItem("Seleccione");
+        combo_carrera.setSelectedItem("");
         txt_clave.setText("");
     }
-
+    
+   
 }

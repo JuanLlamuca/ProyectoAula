@@ -4,12 +4,16 @@ import java.sql.Connection;
 import modelo.Postulante;
 import conexion.Conexion;
 import java.sql.*;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import vistas.Vista_administrador;
 
 
 
 public class Ctrl_Postulante {
-
+    
+    Vista_administrador lbl=new Vista_administrador();
+  
     Conexion mysql = new Conexion();
     Connection cn = mysql.conectar();
 
@@ -37,6 +41,7 @@ public class Ctrl_Postulante {
 
         } catch (SQLException e) {
             System.out.println("Error Ctrl_postulante" + e);
+            
         }
         return respuesta;
     }
@@ -56,7 +61,7 @@ public class Ctrl_Postulante {
             modificar.setString(8, objeto.getDireccion());
             modificar.setString(9, objeto.getEduacion());
             modificar.setString(10, objeto.getNacimiento());
-            modificar.setInt(11, 0);
+            modificar.setInt(11, objeto.getCarrera());
             modificar.setString(12, objeto.getClave());
             modificar.execute();
             cn.close();
@@ -73,7 +78,7 @@ public class Ctrl_Postulante {
         boolean respuesta = false;
         cn = mysql.conectar();
         try {
-            CallableStatement eliminar = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            CallableStatement eliminar = cn.prepareCall("{CALL sp_postulante(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}");
             eliminar.setInt(1, 2);
             eliminar.setInt(2, objeto.getCedula());
             eliminar.setString(3, objeto.getNombres());
@@ -85,6 +90,7 @@ public class Ctrl_Postulante {
             eliminar.setString(9, objeto.getEduacion());
             eliminar.setString(10, objeto.getNacimiento());
             eliminar.setInt(11, 0);
+            eliminar.setInt(12, 0);
             eliminar.execute();
             
             cn.close();
@@ -115,5 +121,13 @@ public class Ctrl_Postulante {
         }
         return respuesta;
     }
+    
+    
+     public void lblmostrar(JLabel lbl){
+        
+        
+        
+    }
+
 
 }

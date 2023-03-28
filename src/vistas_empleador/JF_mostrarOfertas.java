@@ -606,7 +606,7 @@ public class JF_mostrarOfertas extends javax.swing.JFrame {
             oferta.setFechaFin(fechaOut);
             oferta.setJornada(jornada);
             oferta.setCedulaEmpleador(Integer.parseInt(lbl_recibeced.getText()));
-            oferta.setSolicitud("0");
+            oferta.setSolicitud("5");
             
             if (controlofertas.insertOferta(oferta)){
                JOptionPane.showMessageDialog(null, "Oferta creada de manera exitosa");

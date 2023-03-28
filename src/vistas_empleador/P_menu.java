@@ -20,7 +20,7 @@ public class P_menu extends javax.swing.JFrame {
     public P_menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -130,11 +130,11 @@ public class P_menu extends javax.swing.JFrame {
 
         P_fondo.add(P_barracontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 20));
 
-        P_head.setBackground(new java.awt.Color(1, 53, 103));
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_bienvenida.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
-        lbl_bienvenida.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_bienvenida.setForeground(new java.awt.Color(0, 0, 0));
         lbl_bienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_bienvenida.setText("Bienvenido al Sistema de Bolsa de Empleos");
         P_head.add(lbl_bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1360, 50));
@@ -145,14 +145,15 @@ public class P_menu extends javax.swing.JFrame {
 
         P_fondo.add(P_head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1370, 100));
 
-        Menu.setBackground(new java.awt.Color(1, 53, 103));
+        Menu.setBackground(new java.awt.Color(161, 180, 212));
         Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_home.setBackground(new java.awt.Color(1, 53, 103));
+        P_home.setBackground(new java.awt.Color(161, 180, 212));
         P_home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_home.setBackground(new java.awt.Color(255, 255, 255));
         lbl_home.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
-        lbl_home.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_home.setForeground(new java.awt.Color(0, 0, 0));
         lbl_home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono home.png"))); // NOI18N
         lbl_home.setText("Inicio");
         lbl_home.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -169,21 +170,22 @@ public class P_menu extends javax.swing.JFrame {
 
         Menu.add(P_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 60));
 
-        P_barra.setBackground(new java.awt.Color(225, 227, 229));
+        P_barra.setBackground(new java.awt.Color(0, 0, 153));
         P_barra.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 51), null));
         P_barra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Menu.add(P_barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 210, 10));
 
-        P_barra2.setBackground(new java.awt.Color(225, 227, 229));
+        P_barra2.setBackground(new java.awt.Color(0, 0, 153));
         P_barra2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 51), null));
         P_barra2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Menu.add(P_barra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 210, 10));
 
-        P_ediInfo.setBackground(new java.awt.Color(1, 53, 103));
+        P_ediInfo.setBackground(new java.awt.Color(161, 180, 212));
         P_ediInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_modEmp.setBackground(new java.awt.Color(255, 255, 255));
         lbl_modEmp.setFont(new java.awt.Font("Calisto MT", 1, 14)); // NOI18N
-        lbl_modEmp.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_modEmp.setForeground(new java.awt.Color(0, 0, 0));
         lbl_modEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono editar.png"))); // NOI18N
         lbl_modEmp.setText("Editar Info de Cuenta");
         lbl_modEmp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,7 +203,7 @@ public class P_menu extends javax.swing.JFrame {
 
         Menu.add(P_ediInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, 60));
 
-        P_barrasalir.setBackground(new java.awt.Color(225, 227, 229));
+        P_barrasalir.setBackground(new java.awt.Color(0, 0, 102));
         P_barrasalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         Menu.add(P_barrasalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 210, 10));
 
@@ -239,11 +241,11 @@ public class P_menu extends javax.swing.JFrame {
 
         P_fondo.add(P_crearOferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 240, 210));
 
-        P_cerrarsesion.setBackground(new java.awt.Color(1, 53, 103));
+        P_cerrarsesion.setBackground(new java.awt.Color(161, 180, 212));
         P_cerrarsesion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_cerrarsesion.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
-        lbl_cerrarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_cerrarsesion.setForeground(new java.awt.Color(0, 0, 0));
         lbl_cerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/cerrar_sesion-removebg-preview.png"))); // NOI18N
         lbl_cerrarsesion.setText("Cerrar Sesión");
         lbl_cerrarsesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -266,8 +268,7 @@ public class P_menu extends javax.swing.JFrame {
         lbl_iconouser.setForeground(new java.awt.Color(0, 0, 0));
         lbl_iconouser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_iconouser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_j/icono_usuario-removebg-preview.png"))); // NOI18N
-        lbl_iconouser.setText("Bienvenido");
-        P_fondo.add(lbl_iconouser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 220, 60));
+        P_fondo.add(lbl_iconouser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 80, 60));
 
         getContentPane().add(P_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
@@ -338,8 +339,7 @@ public class P_menu extends javax.swing.JFrame {
 
     private void lbl_cerrarsesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cerrarsesionMouseExited
         // TODO add your handling code here:
-        P_cerrarsesion.setBackground(new Color(1,53, 103));
-        lbl_cerrarsesion.setForeground(Color.WHITE);
+        P_cerrarsesion.setBackground(new Color(161, 180, 212));
     }//GEN-LAST:event_lbl_cerrarsesionMouseExited
 
     private void lbl_cerrarsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_cerrarsesionMouseClicked
@@ -363,12 +363,12 @@ public class P_menu extends javax.swing.JFrame {
     private void lbl_maximizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_maximizarMouseClicked
         // TODO add your handling code here:
         //Para maximizar y volver a la normalidad
-        if (this.getExtendedState() != P_menu.MAXIMIZED_BOTH) {
+       /* if (this.getExtendedState() != P_menu.MAXIMIZED_BOTH) {
             this.setExtendedState(MAXIMIZED_BOTH);
         }else{
             this.setExtendedState(NORMAL);
         }
-
+*/
     }//GEN-LAST:event_lbl_maximizarMouseClicked
 
     private void lbl_homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_homeMouseEntered
@@ -377,8 +377,8 @@ public class P_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_homeMouseEntered
 
     private void lbl_homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_homeMouseExited
-        P_home.setBackground(new Color(1, 53, 103));
-        lbl_home.setForeground(Color.WHITE);
+        P_home.setBackground(new Color(161, 180, 212));
+        
     }//GEN-LAST:event_lbl_homeMouseExited
 
     private void lbl_modEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_modEmpMouseClicked
@@ -392,8 +392,7 @@ public class P_menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_modEmpMouseEntered
 
     private void lbl_modEmpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_modEmpMouseExited
-        P_ediInfo.setBackground(new Color(1, 53, 103));
-        lbl_modEmp.setForeground(Color.WHITE);
+        P_ediInfo.setBackground(new Color(161, 180, 212));
     }//GEN-LAST:event_lbl_modEmpMouseExited
 
     /**

@@ -26,21 +26,19 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_ofertas = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 227, 229));
         setForeground(new java.awt.Color(225, 227, 229));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_miniatura.png"))); // NOI18N
 
         tabla_ofertas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "Titulo requerido", "Área necesitada", "Descripción", "Ubicación", "Requisitos", "Salario", "Fecha publicación", "Jornada", "Cedula empleador", "Solicitud", "Fecha finalización"
+                "Titulo requerido", "Área necesitada", "Descripción", "Ubicación", "Requisitos", "Salario", "Fecha publicación", "Jornada", "Fecha finalización"
             }
         ));
         tabla_ofertas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -50,27 +48,28 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_ofertas);
 
+        jLabel2.setFont(new java.awt.Font("Calisto MT", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Ofertas laborales que aplicaste");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(482, 482, 482)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(645, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1327, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(504, 504, 504))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(65, 65, 65)
+                .addComponent(jLabel2)
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                .addGap(126, 126, 126))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -80,7 +79,7 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla_ofertas;
     // End of variables declaration//GEN-END:variables
@@ -97,7 +96,6 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
             ResultSet rs = insertar.executeQuery();
 
             DefaultTableModel modelo = new DefaultTableModel();
-            modelo.addColumn("ID");
             modelo.addColumn("Titulo Requerido");
             modelo.addColumn("Area Necesaria");
             modelo.addColumn("Descripcion");
@@ -106,24 +104,21 @@ public class VisualizarPostulaciones extends javax.swing.JPanel {
             modelo.addColumn("Salario");
             modelo.addColumn("Fecha de Publicacion");
             modelo.addColumn("Jornada");
-            modelo.addColumn("Cedula de Empresa");
-            modelo.addColumn("Solicitud");
+   
             modelo.addColumn("Fecha de Finalizacion");
 
             while (rs.next()) {
-                Object[] fila = new Object[12];
-                fila[0] = rs.getInt("ofer_id");
-                fila[1] = rs.getString("ofer_tituloReq");
-                fila[2] = rs.getString("ofer_areaNec");
-                fila[3] = rs.getString("ofer_descripcion");
-                fila[4] = rs.getString("ofer_ubicacion");
-                fila[5] = rs.getString("ofer_requisito");
-                fila[6] = rs.getString("ofer_salario");
-                fila[7] = rs.getString("ofer_fePublicacion");
-                fila[8] = rs.getString("ofer_jornada");
-                fila[9] = rs.getInt("emp_cedula");
-                fila[10] = rs.getString("ofer_solicitud");
-                fila[11] = rs.getString("ofer_fechaFinaliza");
+                Object[] fila = new Object[9];
+              
+                fila[0] = rs.getString("ofer_tituloReq");
+                fila[1] = rs.getString("ofer_areaNec");
+                fila[2] = rs.getString("ofer_descripcion");
+                fila[3] = rs.getString("ofer_ubicacion");
+                fila[4] = rs.getString("ofer_requisito");
+                fila[5] = rs.getString("ofer_salario");
+                fila[6] = rs.getString("ofer_fePublicacion");
+                fila[7] = rs.getString("ofer_jornada");
+                fila[8] = rs.getString("ofer_fechaFinaliza");
 
                 modelo.addRow(fila);
             }
