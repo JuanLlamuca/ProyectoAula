@@ -81,6 +81,7 @@ public class ModificarCarreras extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_carreras);
 
+        btn_guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modi.png"))); // NOI18N
         btn_guardar.setText("Guardar Cambios");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +157,6 @@ public class ModificarCarreras extends javax.swing.JFrame {
             txt_idCarrera.setText("" + idCarrera);
             txt_nombre.setText(nombre);
             txtArea_descripcion.setText(descripcion);
-                    
         }
     }//GEN-LAST:event_tabla_carrerasMouseClicked
 

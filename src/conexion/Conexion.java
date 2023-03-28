@@ -21,7 +21,7 @@ public class Conexion {
     public Connection conectar(){
      String usu = "bolsa";
      String clv = "bolsaempleo2023";
-     String server ="jdbc:mysql://localhost:3306/bolsa_empleo?characterEncoding=latin1&useConfigs=maxPerformance";
+     String server ="jdbc:mysql://localhost:3306/bolsa_empleo?characterEncoding=latin1";
         try {
             Class.forName( "com.mysql.jdbc.Driver");
          try {

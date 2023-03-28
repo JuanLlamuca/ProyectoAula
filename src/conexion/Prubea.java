@@ -4,6 +4,8 @@
  */
 package conexion;
 
+import vistas_empleador.P_loginEmpleador;
+
 /**
  *
  * @author juanl
