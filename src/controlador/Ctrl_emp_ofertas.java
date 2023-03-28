@@ -36,7 +36,7 @@ public class Ctrl_emp_ofertas {
             insert.setString(10, objeto.getJornada());
             insert.setInt(11, objeto.getCedulaEmpleador());
             insert.setString(12, objeto.getSolicitud());
-            insert.setDate(13, (Date) objeto.getFechaInicio());
+            insert.setDate(13, (Date) objeto.getFechaFin());
             
             if (insert.executeUpdate() != 0) {
                 respuesta = true;
@@ -70,7 +70,7 @@ public class Ctrl_emp_ofertas {
             modificar.setString(10, objeto.getJornada());
             modificar.setInt(11, objeto.getCedulaEmpleador());
             modificar.setString(12, objeto.getSolicitud());
-            modificar.setDate(13, (Date) objeto.getFechaInicio());
+            modificar.setDate(13, (Date) objeto.getFechaFin());
             
             if (modificar.executeUpdate() != 0) {
                 respuesta = true;

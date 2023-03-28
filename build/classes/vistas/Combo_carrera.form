@@ -307,11 +307,16 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="btn_guardar1" min="-2" pref="162" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_modificar1" min="-2" pref="221" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_eliminar1" min="-2" pref="208" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btn_guardar1" min="-2" pref="162" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_modificar1" min="-2" pref="221" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_eliminar1" min="-2" pref="208" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lbl_alerta" min="-2" pref="545" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane4" pref="788" max="32767" attributes="0"/>
                       </Group>
@@ -344,7 +349,9 @@
                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="lbl_alerta" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btn_guardar1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="btn_modificar1" alignment="3" min="-2" pref="59" max="-2" attributes="0"/>
@@ -501,6 +508,13 @@
         <Component class="javax.swing.JTextField" name="txt_idCarreras1">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_alerta">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calisto MT" size="18" style="1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

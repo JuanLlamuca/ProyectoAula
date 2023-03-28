@@ -6,6 +6,7 @@ package vistas;
 
 import conexion.Conexion;
 import controlador.Ctrl_carreras;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -66,6 +67,7 @@ public class Combo_carrera extends javax.swing.JPanel {
         btn_eliminar1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txt_idCarreras1 = new javax.swing.JTextField();
+        lbl_alerta = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 227, 229));
 
@@ -204,6 +206,8 @@ public class Combo_carrera extends javax.swing.JPanel {
 
         txt_idCarreras1.setEnabled(false);
 
+        lbl_alerta.setFont(new java.awt.Font("Calisto MT", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -232,11 +236,14 @@ public class Combo_carrera extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_alerta, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))))
         );
@@ -260,7 +267,9 @@ public class Combo_carrera extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
+                .addGap(39, 39, 39)
+                .addComponent(lbl_alerta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_guardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_modificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,10 +368,14 @@ public class Combo_carrera extends javax.swing.JPanel {
             carrera.setNombre(txt_nombre.getText());
             carrera.setDescripcion(txt_descripcion.getText());
             if (controlCarrera.InsertarCarrera(carrera)) {
-                JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+                lbl_alerta.setText("Datos ingresados correctamente");
+                lbl_alerta.setForeground(Color.GREEN);
+                
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+            //JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+            lbl_alerta.setText("Ingrese todos sus datos");
+            lbl_alerta.setForeground(Color.BLUE);
         }
 
         //limpiar campo
@@ -376,7 +389,9 @@ public class Combo_carrera extends javax.swing.JPanel {
         // TODO add your handling code here:
         int fila = tabla_carreras.getSelectedRow();
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione una fila");
+            //JOptionPane.showMessageDialog(null, "Selecione una fila");
+            lbl_alerta.setText("Seleccione una fila");
+            lbl_alerta.setForeground(Color.BLUE);
         } else {
             int idCarrera = Integer.parseInt((String) tabla_carreras.getValueAt(fila, 0).toString());
             String nombre= (String) tabla_carreras.getValueAt(fila, 1);
@@ -400,10 +415,14 @@ public class Combo_carrera extends javax.swing.JPanel {
             carrera.setDescripcion(txt_descripcion.getText());
 
             if (controlCarreras.modificarCarreras(carrera)) {
-                JOptionPane.showMessageDialog(null, "Datos Modificados correctamente");
+                //JOptionPane.showMessageDialog(null, "Datos Modificados correctamente");
+                lbl_alerta.setText("Datos modificados correctamente");
+                lbl_alerta.setForeground(Color.GREEN);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+            //JOptionPane.showMessageDialog(null, "Ingrese todos sus datos");
+            lbl_alerta.setText("Ingrese todos sus datos");
+            lbl_alerta.setForeground(Color.BLUE);
         }
 
         //limpiar campo
@@ -420,10 +439,14 @@ public class Combo_carrera extends javax.swing.JPanel {
         if (!txt_idCarreras.getText().isEmpty()) {
             carrera.setId_carrera(Integer.parseInt(txt_idCarreras.getText()));
             if (controlCarreras.eliminarCarreras(carrera)) {
-                JOptionPane.showMessageDialog(null, "Datos Elimados correctamente");
+                //JOptionPane.showMessageDialog(null, "Datos Elimados correctamente");
+                lbl_alerta.setText("Datos Elimados correctamente");
+                lbl_alerta.setForeground(Color.GREEN);
             }
         }else {
-            JOptionPane.showMessageDialog(null, "Escoga una carrrera");
+            //JOptionPane.showMessageDialog(null, "Escoga una carrrera");
+            lbl_alerta.setText("Escoga una carrera");
+            lbl_alerta.setForeground(Color.BLUE);
         }
         //limpiar campo
         txt_idCarreras.setText("");
@@ -467,6 +490,7 @@ public class Combo_carrera extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lbl_alerta;
     private javax.swing.JTable tabla_carreras;
     private javax.swing.JTable tabla_carreras1;
     private javax.swing.JEditorPane txt_descripcion;

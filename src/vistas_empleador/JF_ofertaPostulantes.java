@@ -42,7 +42,7 @@ public class JF_ofertaPostulantes extends javax.swing.JFrame {
         P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_head.setBackground(new java.awt.Color(255, 255, 255));
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N

@@ -228,7 +228,7 @@ public class P_loginEmpleador extends javax.swing.JFrame {
         
         if (controlEmpleador.ValidaEmpleador(empleador)){
             
-             JOptionPane.showMessageDialog(null, "Sesión iniciada...");
+             //JOptionPane.showMessageDialog(null, "Sesión iniciada...");
                
              this.setVisible(false);
              P_bienvenida bienvenida = new P_bienvenida();

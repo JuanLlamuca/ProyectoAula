@@ -79,14 +79,14 @@ public class P_creaEmpleador extends javax.swing.JFrame {
         P_fondo.setBackground(new java.awt.Color(225, 227, 229));
         P_fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        P_head.setBackground(new java.awt.Color(1, 53, 103));
+        P_head.setBackground(new java.awt.Color(161, 180, 212));
         P_head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         P_head.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
 
         lbl_registrodeempleador.setFont(new java.awt.Font("Calisto MT", 1, 36)); // NOI18N
-        lbl_registrodeempleador.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_registrodeempleador.setForeground(new java.awt.Color(0, 0, 0));
         lbl_registrodeempleador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_registrodeempleador.setText("Registro de Empleador");
         P_head.add(lbl_registrodeempleador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 60));

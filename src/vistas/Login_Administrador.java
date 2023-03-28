@@ -47,6 +47,7 @@ public class Login_Administrador extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(225, 227, 229));
 
+        txt_usuario.setBackground(new java.awt.Color(225, 227, 229));
         txt_usuario.setBorder(null);
         txt_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +55,7 @@ public class Login_Administrador extends javax.swing.JFrame {
             }
         });
 
+        pass_contrasena.setBackground(new java.awt.Color(225, 227, 229));
         pass_contrasena.setBorder(null);
 
         btn_ingresar.setBackground(new java.awt.Color(1, 53, 103));
@@ -227,7 +229,7 @@ public class Login_Administrador extends javax.swing.JFrame {
         if (!txt_usuario.getText().isEmpty() && !pass_contrasena.getText().isEmpty()) {
             if (usu.equals(usuario) && pass.equals(contraseña) ) {
                 
-                JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
+                //JOptionPane.showMessageDialog(null, "Datos ingresados correctamente");
                 Vista_administrador menu=new Vista_administrador();
                 menu.setVisible(true);
                 this.dispose();
